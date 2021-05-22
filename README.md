@@ -1,6 +1,8 @@
 # Functioneel programmeren in Elm
 Dit is de landingspagina van het thema Programmeerparadigma's voor het VO. 
 
+**Dit is een experimentele versie met gebruik van Binder**
+
 ## Introductie
 
 Informatie over de Informatica Voortgezet Onderwijs keuzemodule over programmeerparadigma's, specifiek functioneel programmeren.
