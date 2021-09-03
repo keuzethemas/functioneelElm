@@ -1,3 +1,8 @@
+.DS_Store
+.ipynb_checkpoints/
+notebooks/.DS_Store
+notebooks/.ipynb_checkpoints/
+notebooks/_build/
 elm-stuff/*
 elm.json
 .obsidian

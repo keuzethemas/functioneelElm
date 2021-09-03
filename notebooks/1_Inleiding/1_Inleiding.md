@@ -1,5 +1,6 @@
 
 # 1 Inleiding
+
 ## 1.1	Generaties programmeertalen
 De eerste elektronische computers zijn gebouwd rond de jaren 40 van de vorige eeuw. Het was al vrij snel mogelijk om een computer verschillende taken (berekeningen) uit te laten voeren. Het was hiervoor nodig om een computer te laten weten welke opdrachten gedaan moesten worden. Het invoeren van de opdrachten die door een computer moeten worden uitgevoerd is het programmeren van een computer. De instructies die kunnen worden gebruikt om deze opdrachten in te voeren, vormen samen de programmeertaal waarmee de computer kan worden geprogrammeerd. In de loop der jaren zijn er talloze programmeertalen ontwikkeld.
 

@@ -1,0 +1,32 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+- caption: Inleiding
+  chapters:
+  - file: 1_Inleiding/1_Inleiding
+  - file: 1_Inleiding/2_Paradigmas
+  - file: 1_Inleiding/3_Programmeerparadigmas
+  - file: 1_Inleiding/4_Overigeparadigmas
+
+- caption: Recursie
+  chapters:
+  - file: 2_Recursie/1_Inleiding
+
+
+- caption: Basis Elm
+  chapters:
+  - file: 3_BasisElm/1_EersteElm/1_elm-basis
+  - file: 3_BasisElm/2_Functie/2_elm-functie-definitie
+
+
+- caption: Toepassingen
+  chapters:
+  - file: 4_Toepassingen/introductie
+  
+
+
+
