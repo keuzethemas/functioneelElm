@@ -15,12 +15,15 @@ parts:
 - caption: Recursie
   chapters:
   - file: 2_Recursie/1_Inleiding
+  - file: 2_Recursie/2_Voorbeelden
+  - file: 2_Recursie/3_Oefenopgaven
 
 
 - caption: Basis Elm
   chapters:
   - file: 3_BasisElm/1_EersteElm/1_elm-basis
   - file: 3_BasisElm/2_Functie/2_elm-functie-definitie
+  - file: 3_BasisElm/3_List/3_elm-list
 
 
 - caption: Toepassingen
