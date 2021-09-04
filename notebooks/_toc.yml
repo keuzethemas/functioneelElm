@@ -25,7 +25,7 @@ parts:
   - file: 3_BasisElm/2_Functie/2_elm-functie-definitie
   - file: 3_BasisElm/3_List/3_elm-list
   - file: 3_BasisElm/4_Recursie/4_recursie-in-elm
-  - file: 3_BasisElm/5_divers/5_elm_diversen
+  - file: 3_BasisElm/5_divers/5_elm-diversen
 
 
 - caption: Toepassingen
