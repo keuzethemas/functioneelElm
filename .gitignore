@@ -4,5 +4,4 @@ notebooks/.DS_Store
 notebooks/.ipynb_checkpoints/
 notebooks/_build/
 elm-stuff/*
-elm.json
 .obsidian
