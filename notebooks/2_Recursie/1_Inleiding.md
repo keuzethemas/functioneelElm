@@ -1,6 +1,3 @@
-
-# 2 Recursie
-![Recursie](img/recursion.png)
 # 2.1 Inleiding recursie
 ![Recursie](img/recursion2.png)
 
@@ -20,6 +17,7 @@ Er zijn verschillende manieren waarop recursie kan worden toegepast. De vorm waa
 
 
 **Los op (probleem):**
+
 ```
 Als het probleem in één keer kan worden opgelost
 	Los het probleem in één keer op
@@ -33,6 +31,7 @@ Om de recursie te benadrukken zijn zowel de naam van de subroutine als de recurs
 Een voorbeeld hiervan is het sorteren van een rij getallen. Bij deze oplossing bestaat het sorteren uit de kleinste van de rij vooraan zetten en dan de rest van de rij verder sorteren (op precies dezelfde manier).
 
 **Sorteer (getallen, vooraan, achteraan)**
+
 ```
 Als vooraan<achteraan dan
     i := vooraan+1
@@ -45,6 +44,7 @@ Als vooraan<achteraan dan
 Een andere vorm van recursie bestaat uit eerst een deel van het probleem op te lossen en daarna met behulp van dit deel van de oplossing de totale oplossing van het probleem maken door het uitvoeren van eenvoudige handelingen:
 
 **Los op (probleem)**
+
 ```
 Als het probleem in één keer kan worden opgelost
     Los het probleem in één keer op
@@ -52,9 +52,11 @@ Anders
     Los op (een deel van het probleem)
     Gebruik de oplossing van het deelprobleem om een oplossing te maken voor het totale probleem
 ```
+
 Deze vorm van recursie kan ook worden gebruikt voor het sorteren van een rij getallen. Het is bijvoorbeeld mogelijk om een rij getallen te sorteren door het getal dat vooraan in de rij staat op de juiste plek te zetten, nadat je de rest van de rij eerst hebt gesorteerd.
 
 **Sorteer (getallen, vooraan, achteraan)**
+
 ```
 Als vooraan < achteraan
     Sorteer (getallen, vooraan+1, achteraan)
@@ -63,9 +65,11 @@ Als vooraan < achteraan
         Wissel (getallen[i], getallen[i+1])
         i := i+1
 ```
+
 Een derde vorm van recursie is een vorm waarin het probleem wordt opgeknipt in kleinere deelproblemen. Het oplossen van de deelproblemen gebeurt dan weer op exact dezelfde manier:
 
 **Los op (probleem)**
+
 ```
 Als het probleem in één keer kan worden opgelost
     Los het probleem in één keer op
@@ -74,9 +78,11 @@ Anders
     Los op (de rest van het probleem)
     Gebruik de oplossingen van de deelproblemen voor oplossing voor het totale probleem
 ```
+
 Deze vorm van recursie is een veel gebruikte techniek om getallen te sorteren. Een voorbeeld hiervan is MergeSort. Bij deze sorteermethode wordt eerst het linkerdeel van een rij getallen gesorteerd en het rechter deel van de rij. Om de totale rij gesorteerd te krijgen hoeven de getallen in het linkerdeel en het rechterdeel alleen nog maar te worden samengevoegd.
 
 **Sorteer (getallen, vooraan, achteraan)**
+
 ```
 Als vooraan < aantal
     midden := (vooraan+achteraan)/ 2	# naar beneden afgerond
@@ -84,9 +90,11 @@ Als vooraan < aantal
     Sorteer (getallen, midden+1, achteraan)
     VoegSamen (getallen, vooraan, achteraan);
 ```
+
 Het samenvoegen van het gesorteerde linkerdeel met het gesorteerde rechterdeel tot één gesorteerde lijst is nog wel een lastig karweitje. Dit wordt doorgaans gedaan met behulp van een hulprijtje:
 
 **VoegSamen (getallen, vooraan, achteraan)**
+
 ```
 midden := (vooraan+achteraan)/ 2	# naar beneden afgerond
 i := vooraan
@@ -116,4 +124,5 @@ Zolang plek <= achteraan
     getallen[plek] := hulprij[plek]
     plek := plek+1
 ```
+
 Alle genoemde voorbeelden tot dusver zijn voorbeelden van 'staartrecursie', een vorm van recursie waarbij een subroutine zichzelf aanroept. Het is ook mogelijk op een indirecte manier gebruik te maken van recursie. Deze vorm ontstaat wanneer een subroutine (A) niet zichzelf aanroept, maar een andere subroutine (B) van waaruit subroutine (A) weer wordt aangeroepen. In dit geval is sprake van 'wederzijdse recursie'.

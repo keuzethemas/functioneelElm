@@ -14,6 +14,7 @@ parts:
 
 - caption: Recursie
   chapters:
+  - file: 2_Recursie/Recursie
   - file: 2_Recursie/1_Inleiding
   - file: 2_Recursie/2_Voorbeelden
   - file: 2_Recursie/3_Oefenopgaven
@@ -27,11 +28,27 @@ parts:
   - file: 3_BasisElm/4_Recursie/4_recursie-in-elm
   - file: 3_BasisElm/5_divers/5_elm-diversen
 
-
 - caption: Toepassingen
   chapters:
   - file: 4_Toepassingen/introductie
-  
+  - file: 4_Toepassingen/elm-programmas
+  - file: 4_Toepassingen/havo2018-natuurkunde-repl 
+  - file: 4_Toepassingen/polynoom
+    sections:
+    - file: 4_Toepassingen/poly-functions
+    - file: 4_Toepassingen/funcpoints
+    - file: 4_Toepassingen/poly-draw
+  - file: 4_Toepassingen/boxplot
+    sections:
+    - file: 4_Toepassingen/myboxplotdata
+    - file: 4_Toepassingen/myboxplotdraw
+    - file: 4_Toepassingen/mymergesort  
+  - file: 4_Toepassingen/ijskristallen
+
+- caption: Appendix
+  chapters:
+  - file: Bronnenlijst
+  - file: hoe-gebruik-je-jupyter
 
 
 

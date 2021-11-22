@@ -1,10 +1,10 @@
-
 # 2.2 Voorbeelden
 
 Er zijn veel typische problemen waarbij het gebruik van recursie erg handig kan zijn om tot een oplossing te komen. In dit hoofdstuk worden enkele van deze voorbeelden besproken.
 
 
 ## 2.2.1 Fibonacci
+
 Één van de bekendste problemen waarvoor een eenvoudige recursieve oplossing bestaat, is de berekening van een Fibonacci getal. Fibonacci getallen vormen een rij (ook wel reeks van Fibonacci genoemd) die begint met 0 en 1 en waarbij elk volgende element van de rij steeds de som is van de twee voorgaande elementen: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …
 
 De rij van Fibonacci getallen wordt soms ook wel de konijnenrij genoemd. Het idee hiervan is dat met deze getallen de voortplantingssnelheid van konijnen wordt weergegeven.
@@ -12,6 +12,7 @@ De rij van Fibonacci getallen wordt soms ook wel de konijnenrij genoemd. Het ide
 De opdracht is om een programma te schrijven dat een bepaald (het N-de) Fibonacci getal berekent. De klassieke manier om dit te doen is:
 
 **FiboWaarde(N)**
+
 ```
 w1 := 0
 w2 := 1
@@ -32,6 +33,7 @@ Hieronder is schematisch weergegeven op welke manier het zesde Fibonacci getal w
 Een recursieve oplossing zou er als volgt uit zien:
 
 **FiboWaarde(n)**
+
 ```
 Als n <= 2 dan
     FiboWaarde := n-1
@@ -42,6 +44,7 @@ Als n <= 2 dan
 Let op: deze oplossing ziet er dan wel veel compacter uit, maar het niet recursieve algoritme is veel efficiënter. Kan jij uitleggen waarom dit zo is?
 
 ## 2.2.2 Sorteren (QuickSort)
+
 Zoals eerder besproken is MergeSort een veel gebruikte recursieve sorteermethode. Een ander bekend sorteeralgoritme dat hier veel op lijkt is QuickSort. Het basisidee van QuickSort is dat het sorteren van een rij getallen bestaat uit het splitsen van de gegevens. Hiertoe wordt één van de waarden in de rij gekozen (de spil cq. de pivot). De waarden die kleiner zijn dan de spil komen aan de linkerkant en de waarde die groter zijn dan de spil komen aan de rechterkant (hierbij wordt er vanuit gegaan dat er in oplopende waarde gesorteerd moet worden). Om de gegevens in de rij in de juiste volgorde te krijgen hoeft nu alleen nog het linkerdeel en het rechterdeel te worden gesorteerd.
 
 Als voorbeeld nemen we de onderstaande rij met gegevens:
@@ -74,6 +77,7 @@ Een stukje van de rij waar slechts één waarde in staat is uiteraard al gesorte
 In pseudocode ziet het QuickSort algoritme er als volgt uit:
 
 **QuickSort (getallenrij, van, tot)**
+
 ```
 Als van < tot
     Splits (getallenrij, van, tot, splitspunt)
@@ -84,6 +88,7 @@ QuickSort (getallenrij, splitspunt + 1, tot)
 Er zijn verschillende manieren om (een stuk van) de rij te splitsen. Een algoritme dat hiervoor gebruikt kan worden is:
 
 **Splits(getallenrij, van, tot, spil)**
+
 ```
 spil := van
 laatste = tot
@@ -97,11 +102,13 @@ Zolang spil < laatste
 ```
 
 ## 2.2.3 Torens van Hanoi
+
 Er is een legende over een hindoe-tempel in de Indiase stad Benares onder keizer Fo Hi, waarvan de priesters, de Brahmanen, zich bezig houden met het verplaatsen van een toren van 64 gouden schijven.
 
 De schijven liggen op drie naalden van diamant, een el lang en zo dik als het lichaam van een bij. In het begin liggen alle schijven opgestapeld over één naald, gesorteerd naar grootte (grootste onder, kleinste boven). Het werk is af wanneer alle schijven zijn verplaatst naar de naald waar de schijven uiteindelijk terecht moeten komen.
 
 De priesters uit de legende hadden drie regels waarmee ze rekening moesten houden:
+
 1. Een schijf ligt altijd over één van de drie pinnen.
 2. Je mag maar een schijf tegelijk verplaatsen.
 3. Je mag nooit een grotere schijf boven op een kleinere schijf leggen.
@@ -131,6 +138,7 @@ Hiermee is het probleem (het verplaatsen van 4 schijven) verkleint tot het verpl
 Op deze manier reduceer je het probleem van het verplaatsen van een stapel steeds tot twee keer het verplaatsen van een stapel die één schijf kleiner is, met daar tussendoor het verplaatsen van één schijf. Als de stapel uit nog slechts één schijf bestaat dan kan je de verplaatsing direct uitvoeren.
 
 **Verplaats Stapel (aantal schijven, van, naar, via)**
+
 ```
 Als aantal schijven = 1
     Toon "Verplaats een schijf van ", van, " naar ", naar
@@ -141,6 +149,7 @@ Anders
 ```
 
 ## 2.2.4 Koch kromme
+
 In 1904 ontdekte de Zweedse wiskundige Helge von Koch een kromme, die nergens afleidbaar is: de Kromme Van Koch.
 ![Kromme van Koch](img/kromme.png)
 
@@ -159,6 +168,7 @@ Het valt niet mee om een niet-recursief algoritme te ontwerpen voor het tekenen 
 Het algoritme zou er dan als volgt uit zien:
 
 **TekenKoch (x1, y1, x2, y2, stappen)**
+
 ```
 Als stappen=0 dan
     TekenLijn (x1, y1, x2, y2)
@@ -203,6 +213,7 @@ Dit betekent dat het coördinaat (x5,y5) als volgt kan worden berekend:
     y5 = ym + ( wortel (3) / 6 ) x (x1-x2) ) 	= 	(y1+y2)/2 + ( wortel (3) / 6 ) x (x1-x2) )
 
 **BerekenHoekpunten (x1, y1, x2, y2, x3, y3, x4, y4, x5, y5)**
+
 ```
 x3 := x1 + (x2-x1) / 3
 y3 := y1 + (y2-y1) / 3
@@ -212,10 +223,11 @@ x5 := (x1+x2)/2 + ( (Wortel(3)) / 6 ) * (y2-y1) )
 y5 := (y1+y2)/2 + ( (Wortel(3)) / 6 ) * (x1-x2) )
 ```
 
-### 2.2.5	Dames op een schaakbord
+## 2.2.5 Dames op een schaakbord
+
 Een ander probleem waarbij het gebruik van recursie erg handig kan zijn om tot een oplossing te komen is het probleem van de 8 dames op een schaakbord. Een dame kan zich in rechte lijnen verplaatsen over het bord: horizontaal, verticaal en diagonaal. Een stuk dat in dezelfde kolom, rij of diagonaal staat als een dame kan door deze dame in één beweging van het bord worden geslagen.
 
-![Kromme van Koch](img/Dames.png)
+![Dames op schaakbord](img/Dames.png)
 
 We willen nu bekijken wat het maximum aantal dames is dat op een schaakbord kan worden geplaatst zonder dat de dames elkaar kunnen slaan.
 
@@ -241,6 +253,7 @@ Zolang er nog niet op alle rijen een koningin is geplaatst (m.a.w. rij <= 8)
 
 ToonOplossing
 ```
+
 Dit programma zal stoppen bij de eerste mogelijkheid die door het programma wordt gevonden om 8 dames op een schaakbord te plaatsen.
 
 Merk op dat dit algoritme er al vanuit gaat dat er in ieder geval een mogelijkheid gevonden zal worden. Als dit niet zeker is zal de zolang-conditie moeten worden uitgebreid met een test of de rij nog groter is dan 0. Bovendien moet er voor ToonOplossing een extra test worden geplaatst ``(Als rij > 8 dan)``.
@@ -250,6 +263,7 @@ Dit idee kan ook recursief worden opgelost. De basisgedachte hierbij is dat het 
 In pseudocode ziet de recursieve oplossing er als volgt uit:
 
 **PlaatsKoninginnen (aantal)**
+
 ```
 Als aantal = 0 dan
     ToonOplossing
@@ -263,6 +277,7 @@ Anders
             Neem_Koningin_Van_Veld (rij, kolom)
         kolom := kolom + 1
 ```
+
 Het zoeken wordt opgestart met het volgende commando: ``PlaatsKoninginnen (8)``. Met dit algoritme wordt niet slechts één oplossing gevonden, maar het zal alle mogelijke oplossingen tonen.
 
 Bij de niet-recursieve oplossing was het nodig om het programma aan te passen als je er niet vanuit mag gaan dat er een oplossing gevonden zal worden. Bedenk of dit ook bij de recursieve oplossing nodig is.

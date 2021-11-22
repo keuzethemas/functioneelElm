@@ -1,9 +1,11 @@
+# 2.3 Oefenopgaven
 
-### 2.3.1 Vermenigvuldigen
+## 2.3.1 Vermenigvuldigen
 
 Het vermenigvuldigen van twee gehele getallen is een rekenkundige bewerking met hetzelfde resultaat als het herhaald optellen van steeds eenzelfde getal. Op deze manier kan het product van twee getallen dus worden berekend. De pseudocode zou er als volgt uit kunnen zien:
 
 **Product (a, b)**
+
 ```
 resultaat := 0;
 Zolang a > 0
@@ -19,11 +21,12 @@ Product := resultaat
 
 ```
 
-### 2.3.2 Palindroom
+## 2.3.2 Palindroom
 
 Een palindroom (ook wel een keerwoord of een spiegelwoord genoemd) is een woord waarin de letters symmetrisch gerangschikt zijn, zodanig dat het woord van achter naar voren gelezen hetzelfde is als van voor naar achter. Een algoritme waarmee wordt bepaald of een woord een palindroom is zou er (in pseudocode) als volgt uit kunnen zien:
 
 **Palindroom (woord)**
+
 ```
 x := 1
 y := lengte(woord)
@@ -35,6 +38,7 @@ x := x+1
 y := y-1
 Palindroom := ok
 ```
+
 >Ontwerp een algoritme voor een recursieve functie waarin wordt bepaald of een woord een palindroom is.
 
 
@@ -42,7 +46,8 @@ Palindroom := ok
 
 ```
 
-### 2.3.3	Decimaal → Binair
+## 2.3.3	Decimaal → Binair
+
 Er zijn verschillende manieren om de binaire representatie van een decimale waarde te bepalen. Een van deze manieren is door herhaaldelijk de decimale waarde door 2 te delen en te kijken wat de restwaarde is. Deze restwaarde wordt aan de (voorkant van de ) binaire representatie toegevoegd. Dit wordt herhaald zolang de decimale waarde groter is dan 0.
 
 Stel dat je de binaire representatie van de decimale waarde 13 wilt berekenen. Je begint met een lege binaire representatie.

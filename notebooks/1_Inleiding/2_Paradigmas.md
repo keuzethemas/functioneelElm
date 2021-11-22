@@ -1,5 +1,4 @@
-
-## 1.2 Paradigma's
+# 1.2 Paradigma's
 
 Bij het onderscheid tussen de verschillende generaties programmeertalen wordt dus een onderscheid gemaakt op basis van afstand tot de computer. Een andere manier om onderscheid te maken tussen soorten programmeertalen is een onderscheid op basis van de manier waarop een probleem kan worden opgelost met behulp van een programmeertaal. Het volgende voorbeeld illustreert wat hiermee wordt bedoeld:
 
