@@ -14,7 +14,7 @@ Informatie over andere keuzethema's vind je op
 
 ## Het lesmateriaal van de lesmodule
 
-+ [Vind de inhoud hier](https://github.com/keuzethemas/functioneelElm)
++ [Vind de inhoud hier](https://keuzethemas.github.io/functioneelElm)
 
 
 ## Meer over Elm
