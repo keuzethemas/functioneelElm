@@ -4,6 +4,7 @@
 title: Functioneel Elm
 author: Coen Crombach et.al.
 logo: logo.png
+copyright: 2022, SLO Amersfoort (CC-BY)
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 
 # Force re-execution of notebooks on each build.
@@ -22,7 +23,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/eelcodijkstra/functioneelelm  # Online location of your book
+  url: https://github.com/keuzethemas/functioneelelm  # Online location of your book
   path_to_book: notebooks  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
