@@ -48,6 +48,7 @@ parts:
 - caption: Appendix
   chapters:
   - file: Bronnenlijst
+  - file: elm-in-jb
   - file: hoe-gebruik-je-jupyter
 
 

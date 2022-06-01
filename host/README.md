@@ -2,6 +2,10 @@
 
 Op deze pagina bekijken we de verschillende mogelijkheden om Elm programma's te executeren en/of Elm-programma's te hosten.
 
+## Via het Jupyter Book
+
++ [Elm in Jupyter Book](../notebooks/elm-in-jb)
+
 ## Elm online
 
 Het is mogelijk Elm online uit te  proberen zonder te installeren.
@@ -15,14 +19,6 @@ Als je de *guide* volgt kom je vanzelf bij de uitleg
 voor de installatie.
 
 (Opmerking: het kan zijn dat je bij installatie een security melding krijgt dat je een gedownload programma wil uitvoeren). 
-
-## frajaweb
-
-Het lesmateriaal is gemaakt in de vorm van Jupyter-notebooks voor op de server 'frajaweb', die gehost wordt door één van de ontwikkelaars.
-+ [jupyterhub.frajaweb.com](https://jupyterhub.frajaweb.com/hub/login)
-+ Inloggen op frajaweb kan met een github-account.
-+ [Elm in Jupyter (elm-kernel)](https://pypi.org/project/elm-kernel/): let op: het keuzemodulemateriaal heeft 2 verschillende Elm-kernels nodig, een voor *Elm-html* en een voor *Elm-REPL*.
-
 
 ## Elm zelf compileren naar javascript
 
