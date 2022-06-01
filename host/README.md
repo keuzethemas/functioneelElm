@@ -4,7 +4,7 @@ Op deze pagina bekijken we de verschillende mogelijkheden om Elm programma's te 
 
 ## Via het Jupyter Book
 
-+ [Elm in Jupyter Book](../notebooks/elm-in-jb)
++ [Elm in Jupyter Book](https://keuzethemas.github.io/functioneelElm/elm-in-jb.html)
 
 ## Elm online
 
