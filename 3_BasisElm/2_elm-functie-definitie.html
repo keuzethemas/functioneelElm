@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.2 Functiedefinitie in Elm &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="3.3 Intro Lists" href="3_elm-list.html" />
+    <link rel="prev" title="3.1 De basis van Elm" href="1_elm-basis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/keuzethemas/functioneelelm/master?urlpath=tree/notebooks/3_BasisElm/2_elm-functie-definitie.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F3_BasisElm/2_elm-functie-definitie.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/3_BasisElm/2_elm-functie-definitie.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano-nog-een-keer">
+   Leonardo Pisano nog een keer…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tweedegraads-vergelijking">
+   Tweedegraads vergelijking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-abc">
+   Challenge abc
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>3.2 Functiedefinitie in Elm</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano-nog-een-keer">
+   Leonardo Pisano nog een keer…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tweedegraads-vergelijking">
+   Tweedegraads vergelijking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-abc">
+   Challenge abc
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="functiedefinitie-in-elm">
+<h1>3.2 Functiedefinitie in Elm<a class="headerlink" href="#functiedefinitie-in-elm" title="Permalink naar deze titel">#</a></h1>
+<p>In het vorige hoofdstuk hebben we de functie ‘toString’ gezien. Hier werd een inputwaarde of parameter in gestopt en er komt als resultaat een outputwaarde (het resultaat) uit. Het is ook mogelijk meerdere waarden mee te geven aan een functie, en er zijn ook functies die helemaal géén input verwachten. Zoals de naam al suggereert zijn functies bij ‘functioneel programmeren’ erg belangrijk.</p>
+<p>Eigenlijk kun je in het algemeen een computerprogramma ook zien als iets wat je aanroept, waar je inputwaarden in stopt en waar dan outputwaarden uit komen.
+Bij web-apps is dit soms nog redelijk duidelijk te herkennen: het begint vaak met het in je browser intypen van een url (internetadres: bijvoorbeeld <a class="reference external" href="http://elm-lang.org/">http://elm-lang.org/</a> ): deze url (dit is een tekst, en dus in softwaretermen een String) wordt naar een server (een computer ergens op het internet) gestuurd: deze computer krijgt dus een string als input. Er wordt een berekening gedaan (‘functie uitgevoerd’) en het resultaat (de outputwaarde) is een html-pagina (ook een String), die terug wordt gestuurd naar jouw computer, jouw browser om precies te zijn, die de html-pagina op je scherm toont.</p>
+<p>Als je er op deze manier over na gaat denken zul je zien dat je veel acties die een computer(programma) uitvoert kunt zien als het uitvoeren/aanroepen van een functie.</p>
+<p>OK, nog een voorbeeldje dan: je dacht misschien hierboven: ja, maar in dat html-scherm staat een knop en een knop is echt iets anders dan een tekst. Je hebt vast ooit naar de ‘sources’ van een web-pagina hebt gekeken (je hebt vast al html gehad maar anders ook sowieso nuttig, en elke browser heeft hier wel een optie voor, iets als ‘view source’) heb je gezien dat een button daar terugkomt in iets wat in essentie lijkt op: &lt;button name=”buttonPressMe” action=”doSomething()”/&gt;, dus zelfs een button in een html-page is een String.
+Het komt er eigenlijk op neer dat de browser de String die terugkomt van de server als inputwaarde neemt voor zijn ‘functie’ ShowPage(receivedHtml) en als output de ‘page’ geeft die je op scherm ziet. In die getoonde page zitten andere dingen dan tekst, er kunnen buttons, textboxes, pictures, listboxes en nog veel meer zichtbaar zijn, maar de omschrijving van wát er te zien is komt dus uit de html-String.</p>
+<p>Je kunt ook zelf nieuwe functies erbij programmeren. Met bijvoorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">telTweeOpBij</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>wordt een nieuwe functie telTweeOpBij (deze naam kun je dus zelf kiezen)
+gedefinieerd.
+Na deze definitie kun je schrijven:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">telTweeOpBij</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 : number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Komt hier uit wat je verwacht?
+Onthoud de functie ‘telTweeOpBij’, we komen hier op terug bij het hoofdstuk over Lists.</p>
+<p>We hadden in plaats van telTweeOpBij ook kunnen schrijven:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nf">\</span><span class="nv">x</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>waarbij <code class="docutils literal notranslate"><span class="pre">\x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">2</span></code> eigenlijk wil zeggen: wat er in gaat noemen we x en er
+komt uit x + 2. Je kunt dit vergelijken met een functie f in de wiskunde:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = x + 2\]</div>
+<p>alleen heeft de functie <code class="docutils literal notranslate"><span class="pre">\x</span> <span class="pre">-&gt;</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">2</span></code> geen naam. Bij de definitie van telTweeOpBij een stukje terug hadden we de functie wel een naam gegeven (namelijk <code class="docutils literal notranslate"><span class="pre">telTweeOpBij</span></code>). Herhalen we nu die definitie maar dan met naam f in plaats
+van telTweeOpBij dan staat er:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hee, da’s bijna wiskunde!?</p>
+<p>We hebben nu dus 2 manieren gezien om een functie te definiëren, als functie met een naam (<code class="docutils literal notranslate"><span class="pre">f</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">f</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>of als functie zonder naam (“anoniem”):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nf">\</span><span class="nv">x</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>We noemen deze laatste vorm ook wel een <em>anonymous function</em>.</p>
+<div class="section" id="leonardo-pisano-nog-een-keer">
+<h2>Leonardo Pisano nog een keer…<a class="headerlink" href="#leonardo-pisano-nog-een-keer" title="Permalink naar deze titel">#</a></h2>
+<p>Als je niet weet wie Leonardo Pisano is zou ik er eens op googlen, hij is al eerder aan bod gekomen, zij het onder een andere naam…</p>
+<p>Enfin, de eerder getoonde formule hier op de <code class="docutils literal notranslate"><span class="pre">Elm</span></code>-manier:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">fibo</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="p">(</span><span class="nv">fibo</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nv">fibo</span><span class="w"> </span><span class="p">(</span><span class="nv">n</span><span class="nf">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Waarna het zoveelste <code class="docutils literal notranslate"><span class="pre">fibo</span></code>-getal op te vragen is met <code class="docutils literal notranslate"><span class="pre">fibo</span> <span class="pre">zoveel</span></code>:
+dus bijvoorbeeld
+fibo 1,
+fibo 5,
+fibo 38.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">fibo</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 : number
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tweedegraads-vergelijking">
+<h2>Tweedegraads vergelijking<a class="headerlink" href="#tweedegraads-vergelijking" title="Permalink naar deze titel">#</a></h2>
+<p>Zoals je bij wiskunde hebt geleerd kun je de zogenaamde tweedegraads vergelijking:</p>
+<div class="math notranslate nohighlight">
+\[ ax^2 + bx + c = 0 \]</div>
+<p>oplossen door allereerst de discriminant <span class="math notranslate nohighlight">\(D = b^2 - 4ac\)</span> uit te rekenen.
+Als <span class="math notranslate nohighlight">\(D &lt; 0\)</span> is is er geen reële oplossing, als <span class="math notranslate nohighlight">\(D \geq 0\)</span> zijn er 2 oplossingen
+(die voor <span class="math notranslate nohighlight">\(D=0\)</span> aan elkaar gelijk zijn).</p>
+<p>Definieer een functie <code class="docutils literal notranslate"><span class="pre">discriminant</span></code> die gegeven 3 getallen (inderdaad: a, b, c)
+de discriminant berekent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">discriminant</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="p">(</span><span class="nv">b</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number -&gt; number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voor de leesbaarheid is het goed hier de haakjes te zetten!</p>
+<p>Zou <span class="math notranslate nohighlight">\(38x^2 + 12x + 6\)</span> oplossingen hebben?</p>
+<p>Vraag het Elm met behulp van de aanroep:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">discriminant</span><span class="w"> </span><span class="mi">38</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-768 : number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Als het antwoord groter dan 0 is zijn er 2
+verschillende oplossingen voor x, als het antwoord 0 is is er 1 oplossing en als
+het antwoord begint met een - is er geen (reële) oplossing.</p>
+<p>Merk op dat Elm de discriminant ziet als een functie van het type</p>
+<p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">-&gt;</span> <span class="pre">number</span> <span class="pre">-&gt;</span> <span class="pre">number</span> <span class="pre">-&gt;</span> <span class="pre">number</span></code></p>
+<p>wat wil zeggen dat de functie achtereenvolgens 3 parameters verwacht!
+Het is dus mogelijk voor tweedegraads vergelijkingen waarbij er géén getal
+(ofwel een 1) voor de x-kwadraat staat een alternatieve functie te definiëren
+om de discriminant te berekeningen (noemen de dit de eenheidsdiscriminant)
+door middel van</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">eenheidsdiscriminant</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">discriminant</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>wat dus eigenlijk betekent dat de eenheidsdiscriminant de normale discriminant
+is met voor de a vast 1 ingevuld. Dat wil zeggen dat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">discriminant</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92 : number
+</pre></div>
+</div>
+</div>
+</div>
+<p>gelijk moet zijn aan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">eenheidsdiscriminant</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92 : number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Is dat ook zo?</p>
+</div>
+<div class="section" id="challenge-abc">
+<h2>Challenge abc<a class="headerlink" href="#challenge-abc" title="Permalink naar deze titel">#</a></h2>
+<p>Dat was de discriminant. Volgende stap is het construeren van een functie die de oplossingen zelf teruggeeft. Ken je de ‘abc-formule’ nog? (of misschien ken je hem onder de naam ‘het Kanon’ of ‘de wortelformule’) Zo niet, zoek hem op en bedenk hoe je dit aan zou kunnen pakken.</p>
+<p>Een tip die daarbij zou kunnen helpen is dat een functie in Elm meerdere waarden terug kan geven! We noemen dat dan een tuple: Een functie kan bijvoorbeeld teruggeven ( x1, x2 )
+dat zouden dan de 2 oplossingen van de tweedegraadsvergelijking kunnen zijn.
+Als je op internet hierop gaat zoeken zou je de keywords ‘elm tuple’ kunnen gebruiken.
+Probeer dit eens uit te werken. Eventueel zou je een tuple met 3 waarden kunnen teruggeven: eerste waarde geeft aantal oplossingen terug (0, 1, of 2), en de volgende 2 waarden in de tuple zijn dan de zogenaamde x1 en x2 (dus de oplossingen van de vergelijking).</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "elmreplkernel"
+        },
+        kernelOptions: {
+            kernelName: "elmreplkernel",
+            path: "./3_BasisElm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'elmreplkernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="1_elm-basis.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">3.1 De basis van Elm</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3_elm-list.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">3.3 Intro Lists</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

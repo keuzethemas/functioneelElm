@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Havo-examen natuurkunde 2018 &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Polynomen tekenen" href="polynoom.html" />
+    <link rel="prev" title="Elm programma’s" href="elm-programmas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/keuzethemas/functioneelelm/master?urlpath=tree/notebooks/4_Toepassingen/havo2018-natuurkunde-repl.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F4_Toepassingen/havo2018-natuurkunde-repl.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/4_Toepassingen/havo2018-natuurkunde-repl.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#voorbereiding">
+   Voorbereiding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vraag-1">
+   Vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-1">
+   Antwoord Vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-1">
+   Elm uitwerking vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-2">
+   Opgave Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-2">
+   Antwoord Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-2">
+   Elm Uitwerking Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-3">
+   Opgave Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-3">
+   Antwoord Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-3">
+   Elm Uitwerking Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-4">
+   Opgave Vraag 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-4">
+   Antwoord Vraag 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-4">
+   Elm Uitwerking Vraag 4
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Havo-examen natuurkunde 2018</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#voorbereiding">
+   Voorbereiding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vraag-1">
+   Vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-1">
+   Antwoord Vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-1">
+   Elm uitwerking vraag 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-2">
+   Opgave Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-2">
+   Antwoord Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-2">
+   Elm Uitwerking Vraag 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-3">
+   Opgave Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-3">
+   Antwoord Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-3">
+   Elm Uitwerking Vraag 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opgave-vraag-4">
+   Opgave Vraag 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antwoord-vraag-4">
+   Antwoord Vraag 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-uitwerking-vraag-4">
+   Elm Uitwerking Vraag 4
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="havo-examen-natuurkunde-2018">
+<h1>Havo-examen natuurkunde 2018<a class="headerlink" href="#havo-examen-natuurkunde-2018" title="Permalink naar deze titel">#</a></h1>
+<p>Je kunt Elm gebruiken als een rekenmachine met formules: je maakt eerst de formules met behulp van functies, en vult pas in de laatste stap de gegevens in. Deze aanpak kun je gebruiken bij het uitwerken van de onderstaande vragen van het HAVO-examen natuurkunde 2018.</p>
+<p>We gebruiken hierbij de Elm REPL, waarmee je interactief Elm opdrachten kunt uitvoeren. Enkele regels daarbij:</p>
+<ul class="simple">
+<li><p>gebruik 1 functiedefinitie per Jupyter Notebook cel.</p></li>
+<li><p>gebruik unieke functienamen.</p></li>
+<li><p>door programmeerfouten kan de kernel “in de war raken”. Je kunt altijd de kernel opnieuw starten; <em>vergeet dan niet de onderstaande functiedefinities <code class="docutils literal notranslate"><span class="pre">milli</span></code> enz. weer uit te voeren, bijvoorbeeld “Restart and Run up to selected cell”</em>.</p></li>
+</ul>
+<p>De eerste vraag is uitgewerkt als voorbeeld. Werk de vragen 2, 3, en 4 zelf uit.</p>
+<div class="section" id="voorbereiding">
+<h2>Voorbereiding<a class="headerlink" href="#voorbereiding" title="Permalink naar deze titel">#</a></h2>
+<p>We definiëren eerst een paar algemene constanten en functies.
+De lichtsnelheid <span class="math notranslate nohighlight">\(c = 3.0 \cdot 10^8\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">c</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="mf">3.</span><span class="mi">0</span><span class="nv">e8</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300000000 : Float
+</pre></div>
+</div>
+</div>
+</div>
+<p>De onderstaande functies zijn handig bij het werken met extra kleine of grote waarden. Je kunt dan bijvoorbeeld schrijven <code class="docutils literal notranslate"><span class="pre">milli</span> <span class="pre">0.3</span></code> in plaats van <code class="docutils literal notranslate"><span class="pre">0.0003</span></code> of <code class="docutils literal notranslate"><span class="pre">0.3e-3</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">milli</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="mi">10</span><span class="nf">^</span><span class="p">(</span><span class="nf">-</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">micro</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="mi">10</span><span class="nf">^</span><span class="p">(</span><span class="nf">-</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">giga</span><span class="w">  </span><span class="nv">g</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="mi">10</span><span class="nf">^</span><span class="mi">9</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">kilo</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="mi">10</span><span class="nf">^</span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>We gebruiken de onderstaande functie om aan te geven wat je zelf nog moet uitwerken.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">werkzelfuit</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : number
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vraag-1">
+<h2>Vraag 1<a class="headerlink" href="#vraag-1" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.1.1.png" src="../_images/havo2018.1.1.png" /></p>
+</div>
+<div class="section" id="antwoord-vraag-1">
+<h2>Antwoord Vraag 1<a class="headerlink" href="#antwoord-vraag-1" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="hav0218.1.2.png" src="../_images/havo2018.1.2.png" /></p>
+</div>
+<div class="section" id="elm-uitwerking-vraag-1">
+<h2>Elm uitwerking vraag 1<a class="headerlink" href="#elm-uitwerking-vraag-1" title="Permalink naar deze titel">#</a></h2>
+<p>Volg de stappen in het antwoord vraag 1 hierboven.</p>
+<p>Gebruik hier de volgende aanpak:</p>
+<ol class="simple">
+<li><p>definieer eerst de formules, bijvoorbeeld in de vorm van functies;</p></li>
+<li><p>vul in de laatste stap de gegeven (gemeten) waarden in.</p></li>
+</ol>
+<p>(1) Elektromagnetische golvan planten zich voort met de lichtsnelheid <span class="math notranslate nohighlight">\(c\)</span>. De afstand die het signaal in tijd <span class="math notranslate nohighlight">\(t\)</span> aflegt, <code class="docutils literal notranslate"><span class="pre">s_signaal</span> <span class="pre">t</span></code>, is dan <span class="math notranslate nohighlight">\(ct\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">s_signaal</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">t</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : Float -&gt; Float
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) Inzicht: het signaal gaat naar het object en terug, de afstand tot het object, <code class="docutils literal notranslate"><span class="pre">s_object</span> <span class="pre">t</span></code>, is dus de helft van de afstand die het signaal in tijd <span class="math notranslate nohighlight">\(t\)</span> aflegt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">s_object</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="mf">0.</span><span class="mi">5</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="p">(</span><span class="nv">s_signaal</span><span class="w"> </span><span class="nv">t</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : Float -&gt; Float
+</pre></div>
+</div>
+</div>
+</div>
+<p>(3) Combineren van (1) en (2) met de gemeten waarde van 0,26 milliseconden voor de tijd tussen zenden en ontvangen. De <code class="docutils literal notranslate"><span class="pre">afstand</span></code> (in meters) is dan:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">afstand</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">s_object</span><span class="w"> </span><span class="p">(</span><span class="nv">milli</span><span class="w"> </span><span class="mf">0.</span><span class="mi">26</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39000.00000000001 : Float
+</pre></div>
+</div>
+</div>
+</div>
+<p>We kunnen dit ook netter weergeven, via <code class="docutils literal notranslate"><span class="pre">&quot;Afstand</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">++</span> <span class="pre">(String.fromFloat</span> <span class="pre">afstand)</span> <span class="pre">++</span> <span class="pre">&quot;</span> <span class="pre">m&quot;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;Afstand = &quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">afstand</span><span class="p">)</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot; m&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Afstand = 39000.00000000001 m&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="opgave-vraag-2">
+<h2>Opgave Vraag 2<a class="headerlink" href="#opgave-vraag-2" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.2.1.png" src="../_images/havo2018.2.1.png" /></p>
+</div>
+<div class="section" id="antwoord-vraag-2">
+<h2>Antwoord Vraag 2<a class="headerlink" href="#antwoord-vraag-2" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.2.2.png" src="../_images/havo2018.2.2.png" /></p>
+</div>
+<div class="section" id="elm-uitwerking-vraag-2">
+<h2>Elm Uitwerking Vraag 2<a class="headerlink" href="#elm-uitwerking-vraag-2" title="Permalink naar deze titel">#</a></h2>
+<p>Bestudeer de Elm uitwerking van Vraag1 en voeg de ontbrekende code toe aan de Elm Uitwerking van Vraag2.</p>
+<p>De <code class="docutils literal notranslate"><span class="pre">periode</span></code> (duur) van één golf van frequentie <span class="math notranslate nohighlight">\(f\)</span> is <span class="math notranslate nohighlight">\(1/f\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">periode</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Het aantal golven in een interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(\Delta t / periode\)</span>. Het interval <span class="math notranslate nohighlight">\(\Delta t\)</span> is 0,100 micro s. De frequentie is 9,38 giga Hz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">aantal_golven</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : number
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="opgave-vraag-3">
+<h2>Opgave Vraag 3<a class="headerlink" href="#opgave-vraag-3" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.3.1.png" src="../_images/havo2018.3.1.png" /></p>
+</div>
+<div class="section" id="antwoord-vraag-3">
+<h2>Antwoord Vraag 3<a class="headerlink" href="#antwoord-vraag-3" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.3.2.png" src="../_images/havo2018.3.2.png" /></p>
+</div>
+<div class="section" id="elm-uitwerking-vraag-3">
+<h2>Elm Uitwerking Vraag 3<a class="headerlink" href="#elm-uitwerking-vraag-3" title="Permalink naar deze titel">#</a></h2>
+<p>Bestudeer het antwoord op Vraag 3 en de Elm uitwerking van Vraag1 en voeg de ontbrekende code toe aan de Elm Uitwerking van Vraag3.</p>
+<p>De radargolf plant zich voort met de lichtsnelheid <span class="math notranslate nohighlight">\(c\)</span>. De golflengte is dan <span class="math notranslate nohighlight">\(c~/f\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">golflengte</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>De kleinste details die waarneembaar zijn, zijn 10% van de golflengte, bij de gegeven frequentie van 9,38 giga Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">minimum_details</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : number
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="opgave-vraag-4">
+<h2>Opgave Vraag 4<a class="headerlink" href="#opgave-vraag-4" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.4.1.1.png" src="../_images/havo2018.4.1.1.png" /></p>
+<p><img alt="havo2018.4.1.2.png" src="../_images/havo2018.4.1.2.png" /></p>
+</div>
+<div class="section" id="antwoord-vraag-4">
+<h2>Antwoord Vraag 4<a class="headerlink" href="#antwoord-vraag-4" title="Permalink naar deze titel">#</a></h2>
+<p><img alt="havo2018.4.2.png" src="../_images/havo2018.4.2.png" /></p>
+</div>
+<div class="section" id="elm-uitwerking-vraag-4">
+<h2>Elm Uitwerking Vraag 4<a class="headerlink" href="#elm-uitwerking-vraag-4" title="Permalink naar deze titel">#</a></h2>
+<p>Bestudeer het antwoord op vraag 4 en werk dit uit in Elm, als bij Vraag 1.</p>
+<p>De constante voor de radarvergelijking is voor de beide afstanden gelijk (het radarvermogen is hetzelfde). Uit deze vergelijking volgt dan voor de verhouding tussen twee oppervlakken <span class="math notranslate nohighlight">\(A_1\)</span> en <span class="math notranslate nohighlight">\(A_2\)</span> op afstand <span class="math notranslate nohighlight">\(r_1\)</span> en <span class="math notranslate nohighlight">\(r_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{r_1^4 \over A_1} = {r_2^4 \over A_2}\]</div>
+<p>ofwel</p>
+<div class="math notranslate nohighlight">
+\[A_2 = A_1 * ({r_2^4 \over r_1^4})\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">opp_a2</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">r1</span><span class="w"> </span><span class="nv">r2</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; b -&gt; c -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uitgewerkt voor de gegeven waarden wordt dit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">oppervlakA2</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Netjes afgedrukt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;Het oppervlak A2 = &quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">oppervlakA2</span><span class="p">)</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot; m^2&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Het oppervlak A2 = 0 m^2&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "elmreplkernel"
+        },
+        kernelOptions: {
+            kernelName: "elmreplkernel",
+            path: "./4_Toepassingen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'elmreplkernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="elm-programmas.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">Elm programma’s</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="polynoom.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Polynomen tekenen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 Inleiding &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="1.2 Paradigma’s" href="2_Paradigmas.html" />
+    <link rel="prev" title="Module Functioneel Programmeren" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F1_Inleiding/1_Inleiding.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/1_Inleiding/1_Inleiding.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generaties-programmeertalen">
+   1.1	Generaties programmeertalen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gl">
+     1.1.1 1GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.1.2 2GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1.1.3 3GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.4 4GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.5	5GL
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>1 Inleiding</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generaties-programmeertalen">
+   1.1	Generaties programmeertalen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gl">
+     1.1.1 1GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1.1.2 2GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     1.1.3 3GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.4 4GL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.5	5GL
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="inleiding">
+<h1>1 Inleiding<a class="headerlink" href="#inleiding" title="Permalink naar deze titel">#</a></h1>
+<div class="section" id="generaties-programmeertalen">
+<h2>1.1	Generaties programmeertalen<a class="headerlink" href="#generaties-programmeertalen" title="Permalink naar deze titel">#</a></h2>
+<p>De eerste elektronische computers zijn gebouwd rond de jaren 40 van de vorige eeuw. Het was al vrij snel mogelijk om een computer verschillende taken (berekeningen) uit te laten voeren. Het was hiervoor nodig om een computer te laten weten welke opdrachten gedaan moesten worden. Het invoeren van de opdrachten die door een computer moeten worden uitgevoerd is het programmeren van een computer. De instructies die kunnen worden gebruikt om deze opdrachten in te voeren, vormen samen de programmeertaal waarmee de computer kan worden geprogrammeerd. In de loop der jaren zijn er talloze programmeertalen ontwikkeld.</p>
+<p>Er zijn veel manieren om een onderscheid te maken in soorten programmeertalen. Een voor de hand liggende indeling is een indeling op grond van ‘de afstand tot de machine’. Met de afstand tot de machine wordt bedoeld: wat moet er nog gebeuren voordat een computer datgene wat er in een programmeertaal is ontwikkeld daadwerkelijk kan uitvoeren? In de regel worden de groepen in deze indeling aangeduid met het begrip ‘generaties’ (veelal afgekort als GL). Er worden grofweg vijf generaties programmeertalen onderscheiden:</p>
+<div class="section" id="gl">
+<h3>1.1.1 1GL<a class="headerlink" href="#gl" title="Permalink naar deze titel">#</a></h3>
+<p>Met de eerste generatie programmeertalen wordt doorgaans machinetaal bedoeld. De instructies die in een eerste generatie programmeertaal aan een computer worden aangeboden bestaan uit reeksen van 0’en en 1’en. De computer kan deze instructies direct uitvoeren zonder dat het eerst moet worden vertaald.</p>
+</div>
+<div class="section" id="id1">
+<h3>1.1.2 2GL<a class="headerlink" href="#id1" title="Permalink naar deze titel">#</a></h3>
+<p>De eerste stap die werd gezet om het programmeren iets eenvoudiger te maken was de introductie van de zogenaamde assembleertalen (assembly languages). Deze tweede generatie programmeertalen laat programmeurs gebruik maken van symbolen, steekwoordjes (‘mnemonics’) en geheugenadressen in plaats van 0’en en 1’en. Voorbeelden van opdrachten zijn:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">MOV</span> <span class="n">CX</span><span class="p">,</span><span class="mi">10</span>    <span class="n">Plaats</span> <span class="n">de</span> <span class="n">waarde</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">het</span> <span class="n">CX</span> <span class="n">register</span>
+    <span class="n">ADD</span>  <span class="n">BX</span><span class="p">,</span> <span class="n">AX</span>  <span class="n">Verhoog</span> <span class="n">de</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">het</span> <span class="n">BX</span> <span class="n">register</span> <span class="n">met</span> <span class="n">de</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">het</span> <span class="n">AX</span> <span class="n">register</span>
+    <span class="n">JMP</span> <span class="n">LBL_A</span>    <span class="n">Ga</span> <span class="n">met</span> <span class="n">de</span> <span class="n">uitvoering</span> <span class="n">van</span> <span class="n">het</span> <span class="n">programma</span> <span class="n">verder</span> <span class="n">bij</span> <span class="n">het</span> <span class="n">label</span> <span class="n">LBL_A</span>
+    <span class="n">SHL</span> <span class="n">BX</span><span class="p">,</span><span class="mi">2</span>	 <span class="n">Verschuif</span> <span class="n">de</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">het</span> <span class="n">BX</span> <span class="n">register</span> <span class="mi">2</span> <span class="n">posities</span> <span class="n">naar</span> <span class="n">links</span> 
+                 <span class="p">(</span><span class="o">=</span> <span class="n">vermenigvuldig</span> <span class="n">de</span> <span class="n">waarde</span> <span class="ow">in</span> <span class="n">het</span> <span class="n">BX</span> <span class="n">register</span> <span class="n">met</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>De afstand van de tweede generatie programmeertalen tot de hardware is iets groter dan wanneer de instructies direct in binaire code aan de computer wordt aangeboden. De assembleercode zal eerst moeten worden omgezet in door de computer uitvoerbare binaire code.</p>
+<p>Om te kunnen werken met een assembly language is nog altijd kennis nodig van de hardware waar de code voor wordt geschreven; elke processorsoort heeft een eigen instructieset en registerset. Dit betekent dat de assembly code voor de ene computer wellicht niet zal werken op een andere computer.</p>
+</div>
+<div class="section" id="id2">
+<h3>1.1.3 3GL<a class="headerlink" href="#id2" title="Permalink naar deze titel">#</a></h3>
+<p>Met de komst van de derde generatie programmeertalen werd het programmeren weer iets gebruikersvriendelijker. Voor de instructies in een derde generatie programmeertaal kan gebruik worden gemaakt van woordjes uit de natuurlijke taal (if, while, case, …). Hierdoor is de code een stuk beter leesbaar dan assemblercode. Bovendien is het niet langer nodig om te verwijzen naar registers wanneer er met gegevens moet worden gewerkt; gegevens in een derde generatie programmeertaal kunnen worden benaderd via zelf gekozen namen die in de programmacode zijn gekoppeld aan de betreffende ‘variabelen’. Ook dit levert een flinke verbetering op in de leesbaarheid van de code. Daarnaast is het binnen derde generatie programmeertalen mogelijk om met verschillende soorten gegevens te werken (gehele getallen, kommagetallen, letters, woorden, logische gegevens).  Ook hierdoor is de bruikbaarheid van de derde generatie programmeertalen flink toegenomen ten opzichte van de programmeertalen uit de tweede generatie.</p>
+<p>Voorbeelden van programmeertalen uit de derde generatie zijn: Fortran, Basic, Cobol, Pascal, C / C++ / C#, Java, Ruby, Python, Go.</p>
+</div>
+<div class="section" id="id3">
+<h3>1.1.4 4GL<a class="headerlink" href="#id3" title="Permalink naar deze titel">#</a></h3>
+<p>De programmeertalen uit de vierde generatie liggen op een nog hoger abstractieniveau dan de derde generatie programmeertalen. Met de vierde generatie programmeertalen wordt gestreefd naar:</p>
+<ol class="simple">
+<li><p>een versnelling in het ontwikkelen van software,</p></li>
+<li><p>het minimaliseren van de gebruikersinspanning om informatie op te kunnen vragen uit computersystemen,</p></li>
+<li><p>het verlagen van de benodigde programmeerkennis om applicaties te kunnen ontwikkelen,</p></li>
+<li><p>ontwikkeling van onderhoudsvriendelijk en eenvoudig aanpasbare software.</p></li>
+</ol>
+<p>Om dit te bewerkstelligen wordt er bij de ontwikkeling in vierde generatietalen gebruik gemaakt van verschillende tools, zoals vraagtalen om databases te benaderen, rapportgeneratoren om informatie snel en overzichtelijk te kunnen presenteren en code generatoren waarmee op basis van een aantal keuzes van de ontwikkelaar achterliggende programmacode wordt aangemaakt.</p>
+<p>Voorbeelden van platform afhankelijke vierde generatie programmeertalen zijn: OpenEdge ABL (Progress 4GL), ABAP (SAP), PL/SQL (Oracle) en Oracle Reports. Voorbeelden van vierde generatietalen die niet afhankelijk zijn van een platform zijn SPSS en R (gebruikt bij dataverwerking en statistische toepassingen).</p>
+</div>
+<div class="section" id="id4">
+<h3>1.5	5GL<a class="headerlink" href="#id4" title="Permalink naar deze titel">#</a></h3>
+<p>De ontwikkeling van de vijfde generatie programmeertalen richt zich op het ontwikkelen van software door het beschrijven van oplossingen in min of meer natuurlijke talen. Met behulp van kunstmatig intelligente technieken wordt deze beschrijving geanalyseerd en omgezet naar de gewenste software.</p>
+<p>Voorbeelden van op natuurlijke taal gebaseerde programmeertalen zijn: Clout, Q&amp;A, Savvy Retriever (voor het werken met databases) en HAL (Human Access Language).</p>
+<p>Het ligt voor de hand om te veronderstellen dat de generaties programmeertalen elkaar ook in de tijd opvolgen. Dit is slechts ten dele waar: de eerste twee generaties programmeertalen waren inderdaad de eerste generaties waarmee computers werden geprogrammeerd. De programmeertalen uit de overige generaties zijn op dit ogenblik nog alle drie volledig in ontwikkeling.</p>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1_Inleiding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">Module Functioneel Programmeren</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2_Paradigmas.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">1.2 Paradigma’s</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

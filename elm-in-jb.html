@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elm in Jupyter Book &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/patch.js"></script>
+    <script src="_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="Hoe gebruik je Jupyter?" href="hoe-gebruik-je-jupyter.html" />
+    <link rel="prev" title="Bronnenlijst" href="Bronnenlijst.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_BasisElm/1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_BasisElm/2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_BasisElm/3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_BasisElm/4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_BasisElm/5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Toepassingen/introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Toepassingen/elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Toepassingen/havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="4_Toepassingen/polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="4_Toepassingen/boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4_Toepassingen/mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Toepassingen/ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/keuzethemas/functioneelelm/master?urlpath=tree/notebooks/elm-in-jb.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2Felm-in-jb.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/elm-in-jb.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-repl">
+   Elm REPL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#live-code-in-jupyter-book">
+     Live Code in Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elm-repl-voorbeelden">
+     Elm REPL voorbeelden
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-notebook-interface">
+   Jupyter Notebook interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-compilatie-kernel">
+   Elm (compilatie) kernel
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Elm in Jupyter Book</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-repl">
+   Elm REPL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#live-code-in-jupyter-book">
+     Live Code in Jupyter Book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elm-repl-voorbeelden">
+     Elm REPL voorbeelden
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-notebook-interface">
+   Jupyter Notebook interface
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elm-compilatie-kernel">
+   Elm (compilatie) kernel
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="elm-in-jupyter-book">
+<span id="id1"></span><h1>Elm in Jupyter Book<a class="headerlink" href="#elm-in-jupyter-book" title="Permalink naar deze titel">#</a></h1>
+<p>Dit Jupyter Book biedt verschillende manieren om Elm-opdrachten en Elm-programma’s in code-cellen uit te voeren.</p>
+<p>In de eerste plaats is er verschil tussen de gecompileerde versie van Elm en de geïnterpreteerde versie (Elm-REPL).
+Een tweede verschil is dat je Elm code-cellen kunt uitvoeren als “Live Code” of als Jupyter Notebook.
+Dit geeft in principe 4 mogelijkheden. (<em>Echter, de gecompileerde versie werkt nog niet als “Live Code”.</em>)</p>
+<div class="admonition-over-kernels admonition">
+<p class="admonition-title">Over kernels</p>
+<p>De code voor de Elm code-cellen wordt niet in de browser uitgevoerd, maar op een server “elders”.
+Op die server draait een Elm-REPL of een Elm (compilatie) <em>kernel</em> die de opdrachten uit de code-cellen verwerkt.</p>
+</div>
+<div class="section" id="elm-repl">
+<h2>Elm REPL<a class="headerlink" href="#elm-repl" title="Permalink naar deze titel">#</a></h2>
+<p>REPL staat voor: Read-Eval-Print-Loop. Elm-REPL is een interpreter die Elm-opdrachten regel voor regel uitvoert. Deze uitvoering verandert de toestand (namen en waarden) voor de regels (code-cellen) die je hierna uitvoert.</p>
+<p>De Elm interpreter (Elm REPL) verwerkt de invoer (het programma) steeds direct, stap voor stap, in de context van de eerder uitgevoerde stappen (“incrementeel”). Dit model past goed bij het Jupyter notebook model, waarbij code-cellen stuk voor stuk direct uitgevoerd worden - bijvoorbeeld met de Python REPL interpreter. Dit model is handig als je de beginselen van Elm als functionele taal wilt leren, omdat je per stap direct feedback krijgt.</p>
+<div class="admonition warning">
+<p class="admonition-title">Waarschuwing</p>
+<p>De Elm REPL code kun je <em>niet uitvoeren in <a class="reference external" href="https://elm-lang.org/try">https://elm-lang.org/try</a></em>. Daar wordt steeds een compleet Elm programma verwacht voor compilatie en uitvoering in de browser-context. Het programma moet resulteren in HTML-code, je hebt geen <em>print</em> opdracht o.i.d.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Waarschuwing</p>
+<p>De volgorde waarin de cellen uitgevoerd worden is van belang. De aanname is dat de cellen in de tekst-volgorde uitgevoerd worden. Als je dat niet doet, kun je vreemde resultaten krijgen, bijvoorbeeld als een “import” of een definitie overgeslagen is.</p>
+</div>
+<p><strong>Herstarten van de kernel.</strong> De Elm REPL kernel kan door je experimenten soms in een vreemde toestand raken, die niet meer klopt met de aannames van het Jupyter (Note)book. In dat geval kun je de kernel opnieuw opstarten, eventueel met “een schone lei”: <em>restart and clear outputs</em>. Je hoeft bij je experimenten dus niet bang te zijn dat je iets kapot maakt, of in paniek te raken als je vreemde resultaten krijgt. Een restart van de kernel lost veel problemen voor je op.</p>
+<div class="section" id="live-code-in-jupyter-book">
+<h3>Live Code in Jupyter Book<a class="headerlink" href="#live-code-in-jupyter-book" title="Permalink naar deze titel">#</a></h3>
+<p>Je kunt de code-cellen in een Jupyter Book pagina “live” maken via de button “Live Code” onder het raket-icoontje bovenin. Als je dit opgestart hebt moet je even wachten totdat de “launch ready” is (in groene letters). Dit kan soms even duren, vooral als er net een nieuwe versie van het Jupyter Book is.</p>
+<p>Een “live” cel heeft een “run” button, en “restart” en “restart &amp; run all” buttons.
+Met de “run” button voer je de code in de cel boven de run-button uit. Je kunt deze code aanpassen en de cel opnieuw uitvoeren. Jupyter Book is bedoeld voor dit soort experimenten die je kunnen helpen om de programma-code te begrijpen.
+Soms staat er ook opdrachten waarin je gevraagd wordt om de code op een bepaalde manier aan te passen.</p>
+<div class="admonition-aan-de-slag admonition">
+<p class="admonition-title">Aan de slag</p>
+<p>Maak deze pagina “live” door op de Live Code button te klikken.
+Je kunt dan de opdrachten hieronder uitvoeren.</p>
+</div>
+</div>
+<div class="section" id="elm-repl-voorbeelden">
+<h3>Elm REPL voorbeelden<a class="headerlink" href="#elm-repl-voorbeelden" title="Permalink naar deze titel">#</a></h3>
+<p>Elm-REPL maakt het eenvoudig om te experimenteren met kleine stukjes code, die je cel voor cel uitvoert.</p>
+<ul class="simple">
+<li><p>voer de cellen in de gegeven volgorde uit;</p></li>
+<li><p>geef als invoer voor REPL per cel een ELM-opdracht die ‘’op 1 regel past’’;</p></li>
+<li><p>of de definitie van een (1) functie (of van een type) - eventueel op meerdere regels;</p></li>
+<li><p>gebruik verschillende namen voor definities in verschillende cellen; vermijd her-definitie van een naam in verschillende cellen</p></li>
+</ul>
+<p>Als de opdracht niet op 1 regel past, kan de Elm-REPL kernel in de war raken, met vreemde foutmeldingen als resultaat. Je kunt dan ook bij de volgende opdrachten problemen krijgen. Remedie: “restart kernel”.</p>
+<p>Als een cel meer dan één definitie bevat raakt de Elm-REPL in de war, meestal onherstelbaar (<em>restart kernel</em>).</p>
+<p>Elm is <em>gevoelig</em> voor <em>indentatie</em> (inspringen): het aantal spaties aan het begin van een regel heeft betekenis in Elm.
+Als je hierin een fout maakt, betekent je Elm programma mogelijk iets anders dan je denkt.</p>
+<p>Nog een tip:</p>
+<ul class="simple">
+<li><p>als namen als <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code> of <code class="docutils literal notranslate"><span class="pre">foldr</span></code> niet gevonden worden, heb je mogelijk niet de juiste libraries geïmporteerd.</p></li>
+</ul>
+<p>We geven hieronder enkele voorbeelden.</p>
+<p><strong>Opdracht.</strong> Probeer deze voorbeelden uit als “Live Code”. Experimenteer met de Elm-uitdrukking en bekijk het resultaat.</p>
+<p><strong>Elm als rekenmachine.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Elm functie-definitie.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">twice</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">  </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">x</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voorbeeld van een bijbehorende aanroep (zonder haakjes om het argument!):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">twice</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Elm heeft ‘sterke typering’.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="s">&quot;ten&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Opdracht.</strong> Verander de <code class="docutils literal notranslate"><span class="pre">+</span></code> in <code class="docutils literal notranslate"><span class="pre">++</span></code> en probeer het nog eens. Kun je deze uitdrukking aanpassen zodat je geen foutmelding krijgt? Als je kernel in de war lijkt, herstart deze dan.</p>
+</div>
+</div>
+<div class="section" id="jupyter-notebook-interface">
+<h2>Jupyter Notebook interface<a class="headerlink" href="#jupyter-notebook-interface" title="Permalink naar deze titel">#</a></h2>
+<p>Je kunt deze pagina ook opstarten als Jupyter Notebook. Gebruik hiervoor de knop “Binder” onder het raketje bovenin.
+Je moet even wachten totdat de (privé!) virtuele machine (server) voor de kernel(s) opgestart is.
+Dan krijg je deze pagina in het Jupyter Notebook interface.</p>
+<p>Voor de uitvoering van de Elm-code is het belangrijkste verschil dat er geen “run” knop per cel is: deze knop vind je bovenin, met in het kernel-menu de mogelijkheid om de kernel opnieuw te starten. Maar je kunt een cel ook uitvoeren door (i) deze te selecteren; en (ii) Shift-Enter te toetsen.</p>
+<p>Voor een uitgebreidere uitleg van het Jupyter Notebook interface, zie:</p>
+<div class="admonition-aan-de-slag-2 admonition">
+<p class="admonition-title">Aan de slag (2)</p>
+<p>Open deze pagina als Jupyter Notebook, via de “Binder” knop onder het raketje.
+Je kunt dan de opdrachten hierboven opnieuw uitvoeren.</p>
+</div>
+</div>
+<div class="section" id="elm-compilatie-kernel">
+<h2>Elm (compilatie) kernel<a class="headerlink" href="#elm-compilatie-kernel" title="Permalink naar deze titel">#</a></h2>
+<p>Naast de Elm-REPL kernel is er de Elm kernel die de code eerst compileert (naar JavaScript) en dan uitvoert.
+Voor deze kernel moet je de cellen die samen het programma vormen afsluiten met de regel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="nb">compile</span><span class="o">-</span><span class="n">code</span>
+</pre></div>
+</div>
+<p>Deze manier van werken komt het meest overeen met het gebruik van Elm in de browser, als vervanger van JavaScript: dat is waar Elm voor ontworpen is.</p>
+<p>Om vlot te werken is het aan te raden om je hele programma in één cel te plaatsen.
+Dan hoef je niet steeds meerdere cellen uit te voeren als je het programma verandert en opnieuw wilt proberen.</p>
+<p><em>De Elm (compilatie) kernel werkt momenteel alleen in Jupyter Notebook, niet in “Live Code”.</em></p>
+<p><strong>Opdracht.</strong></p>
+<ul class="simple">
+<li><p>Start deze pagina (als je dat nog niet gedaan had) als Jupyter Notebook via de “Binder” button onder het raketje.</p></li>
+<li><p>Verander de kernel van “Elm REPL” naar “Elm”: rechts boven de tekst op deze pagina zie je een cirkel met links daarvan “Elm REPL”. Klik op de tekst “Elm REPL”: je krijgt dan een pop-up waarin je een andere kernel kunt kiezen. Kies voor “Elm”.</p></li>
+<li><p>Voer de onderstaande code-cel uit (met Shift-Enter, of via het Kernel-menu bovenin).</p></li>
+</ul>
+<p>Een eerste voorbeeld van een programma met eenvoudige tekst-uitvoer (in de HTML-context):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nc">Html</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="p">(</span><span class="nv">text</span><span class="p">)</span><span class="w"></span>
+
+
+<span class="kr">main </span><span class="nf">=</span><span class="w"></span>
+<span class="w">  </span><span class="nv">text</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromInt</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span>
+<span class="c1">-- compile-code</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Voer de onderstaande code-cel uit.</p></li>
+</ul>
+<p>Als het programma loopt, met een fraaie tekening, kun je daaronder links een (klein) getal invoeren waarmee je een andere variant krijgt. Probeer 1, 2, 3, 4, 5, 6</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nc">Html</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="p">(</span><span class="nv">text</span><span class="p">,</span><span class="w"> </span><span class="nv">div</span><span class="p">,</span><span class="w"> </span><span class="nv">input</span><span class="p">,</span><span class="w"> </span><span class="kt">Attribute</span><span class="p">)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Browser</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="p">(</span><span class="nv">sandbox</span><span class="p">)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Html.Events</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="p">(</span><span class="nv">on</span><span class="p">,</span><span class="w"> </span><span class="nv">keyCode</span><span class="p">,</span><span class="w"> </span><span class="nv">onInput</span><span class="p">)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Html.Attributes</span><span class="w"> </span><span class="nv">exposing</span><span class="nf">(..)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Json.Decode</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kt">Json</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">String</span><span class="w"> </span><span class="nv">exposing</span><span class="p">(</span><span class="nv">split</span><span class="p">)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">List</span><span class="w"> </span><span class="nv">exposing</span><span class="nf">(..)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Maybe</span><span class="w"> </span><span class="nv">exposing</span><span class="nf">(..)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Svg</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="nf">(..)</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nc">Svg.Attributes</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="nf">(..)</span><span class="w"></span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kr">alias</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Float</span><span class="w"></span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Float</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="nv">koch</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">List</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">List</span><span class="w"> </span><span class="kt">Point</span><span class="w"></span>
+<span class="nv">koch</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">limit</span><span class="w"> </span><span class="nv">points</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="kr">let</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="w"> </span><span class="nv">dx</span><span class="p">,</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="w"> </span><span class="nv">b</span><span class="nf">.</span><span class="nv">x</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">a</span><span class="nf">.</span><span class="nv">x</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="nf">.</span><span class="nv">y</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">a</span><span class="nf">.</span><span class="nv">y</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">dist</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="nv">dx</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">dx</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="nf">|&gt;</span><span class="w"> </span><span class="nv">sqrt</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">unit</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="nv">dist</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">angle</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="nv">atan2</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="nv">dx</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">p1</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="kt">Point</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="nf">.</span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">dx</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="nf">.</span><span class="nv">y</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">p2</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="kt">Point</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nv">p1</span><span class="nf">.</span><span class="nv">x</span><span class="w"></span>
+<span class="w">                    </span><span class="nf">+</span><span class="w"> </span><span class="p">(</span><span class="nv">cos</span><span class="w"> </span><span class="p">(</span><span class="nv">angle</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">pi</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+<span class="w">                    </span><span class="nf">*</span><span class="w"> </span><span class="nv">unit</span><span class="w"></span>
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nv">p1</span><span class="nf">.</span><span class="nv">y</span><span class="w"></span>
+<span class="w">                    </span><span class="nf">+</span><span class="w"> </span><span class="p">(</span><span class="nv">sin</span><span class="w"> </span><span class="p">(</span><span class="nv">angle</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">pi</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+<span class="w">                    </span><span class="nf">*</span><span class="w"> </span><span class="nv">unit</span><span class="w"></span>
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="nv">p3</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="kt">Point</span><span class="w"> </span><span class="p">(</span><span class="nv">b</span><span class="nf">.</span><span class="nv">x</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">dx</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">b</span><span class="nf">.</span><span class="nv">y</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nv">dy</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kr">in</span><span class="w"></span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">limit</span><span class="w"> </span><span class="nf">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"></span>
+<span class="w">            </span><span class="kr">let</span><span class="w"></span>
+<span class="w">                </span><span class="nv">l</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">limit</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="kr">in</span><span class="w"></span>
+<span class="w">                </span><span class="kt">List</span><span class="nf">.</span><span class="nv">concat</span><span class="w"></span>
+<span class="w">                    </span><span class="p">[</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nv">koch</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nv">koch</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="nv">p2</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nv">koch</span><span class="w"> </span><span class="nv">p2</span><span class="w"> </span><span class="nv">p3</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+<span class="w">                    </span><span class="p">,</span><span class="w"> </span><span class="nv">koch</span><span class="w"> </span><span class="nv">p3</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+<span class="w">                    </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="kr">else</span><span class="w"></span>
+<span class="w">            </span><span class="nv">a</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">p1</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">p2</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">p3</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">points</span><span class="w"></span>
+
+
+<span class="nv">startP1</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Point</span><span class="w"></span>
+<span class="nv">startP1</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Point</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nf">-</span><span class="mi">150</span><span class="w"></span>
+
+<span class="nv">startP2</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Point</span><span class="w"></span>
+<span class="nv">startP2</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Point</span><span class="w"> </span><span class="mi">150</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+
+
+<span class="nv">startP3</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Point</span><span class="w"></span>
+<span class="nv">startP3</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Point</span><span class="w"> </span><span class="nf">-</span><span class="mi">150</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">    </span>
+<span class="nv">pointsListToString</span><span class="nf">:</span><span class="w"> </span><span class="kt">List</span><span class="w"> </span><span class="kt">Point</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+<span class="nv">pointsListToString</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+
+<span class="w">   </span><span class="kr">if</span><span class="w"> </span><span class="kt">List</span><span class="nf">.</span><span class="nv">isEmpty</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="kr">then</span><span class="w"></span>
+<span class="w">       </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="kr">else</span><span class="w"></span>
+<span class="w">      </span><span class="kr">let</span><span class="w"></span>
+<span class="w">        </span><span class="nv">h</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">withDefault</span><span class="w"> </span><span class="p">(</span><span class="kt">Point</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">head</span><span class="w"> </span><span class="p">(</span><span class="nv">take</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">l</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="kr">in</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">h</span><span class="nf">.</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">h</span><span class="nf">.</span><span class="nv">y</span><span class="p">)</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="p">(</span><span class="nv">pointsListToString</span><span class="w"> </span><span class="p">(</span><span class="nv">drop</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">l</span><span class="p">))</span><span class="w"></span>
+
+<span class="kr">main </span><span class="nf">=</span><span class="w"> </span><span class="kt">Browser</span><span class="nf">.</span><span class="nv">sandbox</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">init</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">init</span><span class="p">,</span><span class="w"> </span><span class="nv">update</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">update</span><span class="p">,</span><span class="w"> </span><span class="nv">view</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">view</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="kr">type</span><span class="w"> </span><span class="kr">alias</span><span class="w"> </span><span class="kt">Model</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="nv">init</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Model</span><span class="w"></span>
+<span class="nv">init</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+
+<span class="nv">view</span><span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">   </span><span class="kr">let</span><span class="w"></span>
+<span class="w">        </span><span class="nv">path</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">            </span><span class="nv">pointsListToString</span><span class="w"> </span><span class="p">(</span><span class="nv">koch</span><span class="w"> </span><span class="nv">startP1</span><span class="w"> </span><span class="nv">startP2</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="nf">.</span><span class="nv">withDefault</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">toInt</span><span class="w"> </span><span class="nv">model</span><span class="nf">.</span><span class="nv">content</span><span class="p">))</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="nv">pointsListToString</span><span class="w"> </span><span class="p">(</span><span class="nv">koch</span><span class="w"> </span><span class="nv">startP2</span><span class="w"> </span><span class="nv">startP3</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="nf">.</span><span class="nv">withDefault</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">toInt</span><span class="w"> </span><span class="nv">model</span><span class="nf">.</span><span class="nv">content</span><span class="p">))</span><span class="w"> </span><span class="p">[])</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="nv">pointsListToString</span><span class="w"> </span><span class="p">(</span><span class="nv">koch</span><span class="w"> </span><span class="nv">startP3</span><span class="w"> </span><span class="nv">startP1</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="nf">.</span><span class="nv">withDefault</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="nf">.</span><span class="nv">toInt</span><span class="w"> </span><span class="nv">model</span><span class="nf">.</span><span class="nv">content</span><span class="p">))</span><span class="w"> </span><span class="p">[])</span><span class="w"></span>
+<span class="w">   </span><span class="kr">in</span><span class="w"></span>
+<span class="w">        </span><span class="nv">div</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">          </span><span class="p">[</span><span class="w"> </span><span class="nv">input</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">placeholder</span><span class="w"> </span><span class="s">&quot;numbers separated by ,&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="nv">model</span><span class="nf">.</span><span class="nv">content</span><span class="p">,</span><span class="w"> </span><span class="nv">onInput</span><span class="w"> </span><span class="kt">Change</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">          </span><span class="p">,</span><span class="w"> </span><span class="nv">svg</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">viewBox</span><span class="w"> </span><span class="s">&quot;0 0 200 200&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">Svg</span><span class="nf">.</span><span class="kt">Attributes</span><span class="nf">.</span><span class="nv">width</span><span class="w"> </span><span class="s">&quot;400px&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">           </span><span class="p">[</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">transform</span><span class="w"> </span><span class="s">&quot;translate(100, 100) scale(0.5,-0.5)&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">                 </span><span class="p">[</span><span class="w"> </span>
+<span class="w">                    </span><span class="nv">polyline</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">fill</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">stroke</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">points</span><span class="w"> </span><span class="nv">path</span><span class="p">]</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+
+<span class="w">           </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span><span class="p">]</span><span class="w"></span>
+<span class="w">          </span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Msg</span><span class="w"> </span>
+<span class="w">  </span><span class="nf">=</span><span class="w"> </span><span class="kt">Change</span><span class="w"> </span><span class="kt">String</span><span class="w"></span>
+
+<span class="nv">update</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Msg</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Model</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Model</span><span class="w"></span>
+<span class="nv">update</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">  </span><span class="kr">case</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="kr">of</span><span class="w"></span>
+<span class="w">    </span><span class="kt">Change</span><span class="w"> </span><span class="nv">newContent</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="nf">|</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">newContent</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="c1">-- compile-code</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "elmreplkernel"
+        },
+        kernelOptions: {
+            kernelName: "elmreplkernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'elmreplkernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Bronnenlijst.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">Bronnenlijst</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="hoe-gebruik-je-jupyter.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Hoe gebruik je Jupyter?</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

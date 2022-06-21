@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4 Recursie in elm &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="3.5 Records" href="5_elm-diversen.html" />
+    <link rel="prev" title="3.3 Intro Lists" href="3_elm-list.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/keuzethemas/functioneelelm/master?urlpath=tree/notebooks/3_BasisElm/4_recursie-in-elm.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F3_BasisElm/4_recursie-in-elm.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/3_BasisElm/4_recursie-in-elm.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursie-op-een-list">
+   3.4.1 Recursie op een List
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-1">
+     Challenge Morse (1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-2-moeilijk">
+     Challenge Morse (2) (moeilijk)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   3.4.2 Tuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano">
+   3.4.3 Leonardo Pisano
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano-advanced">
+   3.4.3 Leonardo Pisano Advanced
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-3-advanced">
+     Challenge Morse (3) (advanced)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>3.4 Recursie in elm</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursie-op-een-list">
+   3.4.1 Recursie op een List
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-1">
+     Challenge Morse (1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-2-moeilijk">
+     Challenge Morse (2) (moeilijk)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples">
+   3.4.2 Tuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano">
+   3.4.3 Leonardo Pisano
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#leonardo-pisano-advanced">
+   3.4.3 Leonardo Pisano Advanced
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#challenge-morse-3-advanced">
+     Challenge Morse (3) (advanced)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="recursie-in-elm">
+<h1>3.4 Recursie in elm<a class="headerlink" href="#recursie-in-elm" title="Permalink naar deze titel">#</a></h1>
+<p>In het eerdere hoofdstuk over <code class="docutils literal notranslate"><span class="pre">Recursie</span></code> heb je al gelezen dat je met recursie een probleem kunt oplossen door het te verkleinen, of zelfs het hele probleem in kleinere (deel)problemen op te lossen. We gaan nu naar een paar voorbeelden in elm kijken.</p>
+<p>Stel je voor ik moet een moeilijke berekening 10x achter elkaar doen. Deze uitdaging/challenge kunnen we opsplitsen in 2 deel-challenges: Hoe kan ik ‘iets’ 10x doen? Hoe kan ik die moeilijke berekening 1x uitvoeren? Laten we even als simpel voorbeeld nemen het gooien met een dobbelsteen en stel we hebben een functie die 0 parameters verwacht en 1 uitkomst teruggeeft: <code class="docutils literal notranslate"><span class="pre">gooiDobbelsteen()</span></code></p>
+<p>Hoe kunnen we er nu voor zorgen dat dit 10 keer gebeurt? Misschien heb je de volgende oplossing bedacht:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+<span class="n">gooiDobbelsteen</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Leuk bedacht maar heeft een paar nadelen. Heb je bijvoorbeeld nageteld of het er wel 10 zijn? Verder kan dit bij 10 nog wel maar software moet vaak iets 100000 keer of nog vaker doen, dat werkt natuurlijk niet. Tot slot is het hoe vaak iets moet gebeuren vaak afhankelijk van een andere input…</p>
+<p>Enfin, terug naar recursiviteit: Als ik een functie heb die als parameter het getal ‘10’ meekrijgt (hoe vaak het moet
+gebeuren), die 1x die actie uitvoert en vervolgens een functie zou kunnen aanroepen die (10 - 1)x ofwel 9x die actie
+uitvoert, heb ik de challenge van ‘iets 10x doen’ verkleind tot ‘iets 9x doen’. Maar hee, het aantal keren dat het
+‘iets’ gedaan moest worden was de waarde van de parameter, dus als de functie zichzelf zou kunnen aanroepen met een
+parameter die 1 kleiner is zijn we (bijna) klaar: ‘iets 9x doen’ wordt dan namelijk verkleind tot ‘iets 8x doen’,
+en dat weer tot ‘iets 7x doen’, en zo verder tot we bij 1 of 0 zijn.</p>
+<p>Laten we eerst eens kijken of we dat voor elkaar krijgen met een functie die een aantal streepjes (letter ‘I’ moet neerzetten):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">repeat</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="s">&quot;I&quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="nv">repeat</span><span class="w"> </span><span class="p">(</span><span class="nv">n</span><span class="nf">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; String
+</pre></div>
+</div>
+</div>
+</div>
+<p>De functie verwacht een aantal (hierboven heet de parameter ‘n’ maar ‘aantal’ is misschien wel leesbaarder). We roepen de functie nu aan met parameter 3. Hij moet dus 3 streepjes zetten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">repeat</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;III&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Geloof nooit na 1 test dat een functie werkt, probeer het nog eens met parameter 8:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">repeat</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;IIIIIIII&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Snap je hoe de functie werkt?</p>
+<p>Het geval n = 0 is trouwens wel een aparte, laten we die ook testen: er moeten dan dus 0 streepjes komen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">repeat</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wat als we een negatief getal invoeren? Wat zou repeat(-2) doen?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">repeat</span><span class="w"> </span><span class="nf">-</span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="recursie-op-een-list">
+<h2>3.4.1 Recursie op een List<a class="headerlink" href="#recursie-op-een-list" title="Permalink naar deze titel">#</a></h2>
+<p>Bij sommige types werken recursieve functies heel handig. Voorbeelden zijn een ‘List’ of een zogenaamde ‘Tree’. Als je bijvoorbeeld de ‘lengte’ (aantal elementen) van een List wilt weten kun je dat doen door middel van een functie ‘lengte’ dat een zogenaamd ‘case’-statement gebruikt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">lengte</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span>
+<span class="w">  </span><span class="kr">case</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="kr">of</span><span class="w"></span>
+<span class="w">  </span><span class="p">[]</span><span class="w">  </span><span class="nf">-&gt;</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span>
+<span class="w">  </span><span class="nv">elt</span><span class="w"> </span><span class="nf">::</span><span class="w"> </span><span class="nv">restOfList</span><span class="w">  </span><span class="nf">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="p">(</span><span class="nv">lengte</span><span class="w"> </span><span class="nv">restOfList</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : List a -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Stel je hebt een String en je wilt met elke letter van die String ‘iets’ doen. Daarvoor kun je de String-functie ‘toList’ gebruiken:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kt">String</span><span class="nf">.</span><span class="nv">toList</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;] : List Char
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merk op dat de losse karakters tussen andere quotes staan dan bij een String gebruikt worden: hiermee wordt aangegeven dat het 1 los karakter ‘Char’ betreft, terwijl Strings (doorgaans) niet lengte 1 hebben.</p>
+<p>We gaan nu kijken naar een zogenaamde ‘Dictionary’, een constructie die in veel programmeertalen voorkomt (in sommige talen heet het een ‘Map’). Een Dictionary is een collectie van zogenaamde ‘key-value’-pairs. Neem als voorbeeld een Nederlands woordenboek: hierin zitten ‘keys’ waarop je snel kunt zoeken, dat zijn de woorden. Bij elk woord hoort een ‘value’: de omschrijving van dat woord. Op de omschrijving zoeken gaat niet handig: dan begin je op een pagina en sla je elke keer een pagina om totdat je de omschrijving hebt gevonden. Een telefoonboek is ook een Dictionary: als je op naam (de key) zoekt vind je snel het bijbehorende telefoonnummer, maar als je een telefoonnummer hebt en de naam erbij wilt zoeken ben je lang bezig (bij een papieren telefoonboek tenminste).
+Als je snel 2 kanten op wilt heb je 2 Dictionaries nodig: als voorbeeld kun je denken aan een Nederlands-Frans woordenboek en voor de andere richting een Frans-Nederlands woordenboek. Google op ‘elm Dictionary’ voor meer kennis over Dictionary in elm.</p>
+<p>Als voorbeeld maken we een Dictionary die als keys de letters (als Char) van het alfabet heeft en als values de morse-code (als String) die bij die letter hoort:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nc">Dict</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>en daarna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kt">Dict</span><span class="nf">.</span><span class="nv">fromList</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">a&#39;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.-&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">b&#39;</span><span class="p">,</span><span class="s">&quot;-...&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">c&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-.-.&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">e&#39;</span><span class="p">,</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">l&#39;</span><span class="p">,</span><span class="s">&quot;.-..&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--&quot;</span><span class="p">)]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict<span class=" -Color -Color-White">.fromList</span> [(&#39;a&#39;,&quot;.-&quot;),(&#39;b&#39;,&quot;-...&quot;),(&#39;c&#39;,&quot;-.-.&quot;),(&#39;e&#39;,&quot;.&quot;),(&#39;l&#39;,&quot;.-..&quot;),(&#39;m&#39;,&quot;--&quot;)]
+    : Dict.Dict Char String
+</pre></div>
+</div>
+</div>
+</div>
+<p>De eerste regel is nodig zodat elm weet dat je de code die al geprogrammeerd is in ‘Dict’ wilt gebruiken. Anders zouden we alles elke keer opnieuw moeten programmeren.</p>
+<p>Hierboven staan maar een paar letters gegeven, zoek zelf de Morse code voor de overige letters op. Sla het resultaat met behulp van ‘morseAlfabet = …’ op in de variabele morseAlfabet (let dus op dat je geen tikfouten maakt!). Met de functie ‘Dict.keys’ kun je opvragen welke keys er in de Dictionary zitten. Als je het hele alfabet erin verwerkt zal het niet meer op een regel passen, gelukkig heb je eerder al gezien hoe je je code op een volgende regel door kunt laten gaan!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">morseAlfabet</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="kt">Dict</span><span class="nf">.</span><span class="nv">fromList</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">a&#39;</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.-&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">b&#39;</span><span class="p">,</span><span class="s">&quot;-...&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">c&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-.-.&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">e&#39;</span><span class="p">,</span><span class="s">&quot;.&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">l&#39;</span><span class="p">,</span><span class="s">&quot;.-..&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="nf">&#39;</span><span class="nv">m&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;--&quot;</span><span class="p">)]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dict<span class=" -Color -Color-White">.fromList</span> [(&#39;a&#39;,&quot;.-&quot;),(&#39;b&#39;,&quot;-...&quot;),(&#39;c&#39;,&quot;-.-.&quot;),(&#39;e&#39;,&quot;.&quot;),(&#39;l&#39;,&quot;.-..&quot;),(&#39;m&#39;,&quot;--&quot;)]
+    : Dict.Dict Char String
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kt">Dict</span><span class="nf">.</span><span class="nv">keys</span><span class="w"> </span><span class="nv">morseAlfabet</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;e&#39;,&#39;l&#39;,&#39;m&#39;]
+    : List Char
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kt">Dict</span><span class="nf">.</span><span class="nv">values</span><span class="w"> </span><span class="nv">morseAlfabet</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;.-&quot;,&quot;-...&quot;,&quot;-.-.&quot;,&quot;.&quot;,&quot;.-..&quot;,&quot;--&quot;]
+    : List String
+</pre></div>
+</div>
+</div>
+</div>
+<p>geeft daarentegen de ‘values’ (dus de morse-codes). De morse-vertaling van een Char kun je krijgen met de functie ‘Dict.get’:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kt">Dict</span><span class="nf">.</span><span class="nv">get</span><span class="w"> </span><span class="nf">&#39;</span><span class="nv">a&#39;</span><span class="w"> </span><span class="nv">morseAlfabet</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Just &quot;.-&quot; : Maybe String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dit geeft iets terug wat door Elm als ‘Maybe String’ wordt aangeduid. Reden: als de gezochte letter ‘a’ niet in de Dict voorkomt weet elm niet welke String terug te geven. Om zeker te weten dat er een String terugkomt is er een manier bedacht om zelf een String mee te geven die gebruikt wordt in een dergelijk geval dat er geen logisch antwoord bestaat. Zoek eens op Dict.get withDefault in de documentatie of op internet.</p>
+<div class="section" id="challenge-morse-1">
+<h3>Challenge Morse (1)<a class="headerlink" href="#challenge-morse-1" title="Permalink naar deze titel">#</a></h3>
+<p>Nu zou het mooi zijn als we een heel woord (of een hele zin) kunnen vertalen naar Morse. Schrijf hier zelf een functie voor. Gebruik hiervoor de manier om 1 Char te vertalen zoals hierboven gebruikt, gecombineerd met de functie ‘String.toList’ die de te vertalen String in een List van Chars omzet. Je zult ook de functies ‘List.head’ en ‘List.tail’ willen gebruiken (zie het hoofdstuk over Lists in elm).</p>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">toMorse</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span>
+</pre></div>
+</div>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">toMorse</span><span class="w"> </span><span class="s">&quot;bloemkool&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="challenge-morse-2-moeilijk">
+<h3>Challenge Morse (2) (moeilijk)<a class="headerlink" href="#challenge-morse-2-moeilijk" title="Permalink naar deze titel">#</a></h3>
+<p>Een extra uitdaging is het om een functie te schrijven die een gecodeerde Morse string (bijvoorbeeld: “. .-.. – .. … ..-. ..- -.”, dus met spaties na elke letter-code) terug kan vertalen naar tekst.</p>
+</div>
+</div>
+<div class="section" id="tuples">
+<h2>3.4.2 Tuples<a class="headerlink" href="#tuples" title="Permalink naar deze titel">#</a></h2>
+<p>Een functie die meerdere parameters krijgt hebben we al een paar maal gezien, maar tot nu toe kwam er altijd maar 1 waarde uit. In <code class="docutils literal notranslate"><span class="pre">elm</span></code> kan een <code class="docutils literal notranslate"><span class="pre">function</span></code> ook meerdere waarden tegelijk teruggeven. Dit heet dan een <code class="docutils literal notranslate"><span class="pre">tuple</span></code> (een Engels woord, maar je kunt het op z’n Nederlands uitspreken als <code class="docutils literal notranslate"><span class="pre">tupel</span></code>). Een <code class="docutils literal notranslate"><span class="pre">tuple</span></code> wordt geschreven als meerdere waarden met komma’s ertussen en haakjes er omheen: <code class="docutils literal notranslate"><span class="pre">(a,b,c)</span></code>. Een functie die 2 parameters krijgt en zowel de som (optelling) als het product (de vermenigvuldiging) van de 2 moet teruggeven kan er als volgt uitzien:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">somEnProduct</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number -&gt; ( number, number )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">somEnProduct</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7,12) : ( number, number )
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="leonardo-pisano">
+<h2>3.4.3 Leonardo Pisano<a class="headerlink" href="#leonardo-pisano" title="Permalink naar deze titel">#</a></h2>
+<p>Deze naam wel eens gehoord? Zoek er eens op met je favoriete zoek-engine. Je hebt al eerder van deze persoon gehoord onder een andere naam!
+We gaan de getallenrij van deze meneer realiseren in <code class="docutils literal notranslate"><span class="pre">elm</span></code> met behulp van de function <code class="docutils literal notranslate"><span class="pre">fibo</span></code>. Een eerder genoemde methode was iets als:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">fibo</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">&lt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="nv">fibo</span><span class="p">(</span><span class="nv">n</span><span class="nf">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nf">+</span><span class="w"> </span><span class="nv">fibo</span><span class="p">(</span><span class="nv">n</span><span class="nf">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hoeveel is fibo 5? En fibo 6, fibo 7, fibo 8 en fibo 9?</p>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="leonardo-pisano-advanced">
+<h2>3.4.3 Leonardo Pisano Advanced<a class="headerlink" href="#leonardo-pisano-advanced" title="Permalink naar deze titel">#</a></h2>
+<p>Bovengenoemde functie <code class="docutils literal notranslate"><span class="pre">fibo</span></code> is wel een elegante definitie maar niet zo’n efficiënte methode van berekening omdat er namelijk veel getallen dubbel berekend worden! Met behulp van tuples kunnen we dat efficiënter maken:
+Bekijk het tuple <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(n-1)</span> <span class="pre">,</span> <span class="pre">fibo(n)</span> <span class="pre">)</span></code> en neem de definitie erbij zie je dat je dit mag schrijven als:
+<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(n-1)</span> <span class="pre">,</span> <span class="pre">fibo(n-1)+fibo(n-2)</span> <span class="pre">)</span></code>, waaruit volgt (misschien zie je het nog niet direct!):
+als ik een tuple heb met 2 op elkaar volgende (maar verder vrij willekeurig gekozen) fibo-getallen <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(82)</span> <span class="pre">,</span> <span class="pre">fibo(83)</span> <span class="pre">)</span></code> kan ik het ‘daaropvolgende’ fibo-paar berekenen met behulp van:</p>
+<p><code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(83)</span> <span class="pre">,</span> <span class="pre">fibo(84)</span> <span class="pre">)</span></code> is gelijk aan:
+<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(83)</span> <span class="pre">,</span> <span class="pre">fibo(82)+fibo(83)</span> <span class="pre">)</span></code></p>
+<p>wat we algemener kunnen opschrijven als: stel we weten dat <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(m-1),</span> <span class="pre">fibo(m)</span> <span class="pre">)</span></code> de waarden <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">a</span> <span class="pre">,</span> <span class="pre">b</span> <span class="pre">)</span></code> bevat, dan bevat het daarop volgende fibo-tuple <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(m),</span> <span class="pre">fibo(m+1)</span> <span class="pre">)</span></code> de waarden <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">a</span> <span class="pre">,</span> <span class="pre">a+b</span> <span class="pre">)</span></code>.</p>
+<p>Beginnen we met het eerste fibo-paar <code class="docutils literal notranslate"><span class="pre">(0,1)</span></code></p>
+<p>dan is het 2e <code class="docutils literal notranslate"><span class="pre">(1,1+0)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(1,1)</span></code>,</p>
+<p>het 3e is <code class="docutils literal notranslate"><span class="pre">(1,1+1)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(1,2)</span></code>,</p>
+<p>het 4e is <code class="docutils literal notranslate"><span class="pre">(2,2+1)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(2,3)</span></code>,</p>
+<p>het 5e is <code class="docutils literal notranslate"><span class="pre">(3,3+2)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(3,5)</span></code>,</p>
+<p>het 6e is <code class="docutils literal notranslate"><span class="pre">(5,5+3)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(5,8)</span></code>,</p>
+<p>het 7e is <code class="docutils literal notranslate"><span class="pre">(8,8+5)</span></code> ofwel <code class="docutils literal notranslate"><span class="pre">(8,13)</span></code>.</p>
+<p>Ik kan fibo(n) berekenen door het goede element van het tuple <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">fibo(n-1)</span> <span class="pre">,</span> <span class="pre">fibo(n)</span> <span class="pre">,</span> <span class="pre">n</span> <span class="pre">)</span></code> eruit te nemen.
+Op <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">wikipedia over functional programming</a> kun je de volgende efficiënte oplossing in functionele programmeertaal <code class="docutils literal notranslate"><span class="pre">SequenceL</span></code> lezen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">:=</span> <span class="n">fib_Helper</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+<span class="n">fib_Helper</span><span class="p">(</span><span class="n">prev</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">:=</span>
+   <span class="n">prev</span> <span class="n">when</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="k">else</span>
+   <span class="nb">next</span> <span class="n">when</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">else</span>
+   <span class="n">fib_Helper</span><span class="p">(</span><span class="nb">next</span><span class="p">,</span> <span class="nb">next</span> <span class="o">+</span> <span class="n">prev</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Als we dit in Elm-notatie opschrijven krijgen we iets als:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">fiboHelper</span><span class="w"> </span><span class="p">(</span><span class="nv">prev</span><span class="p">,</span><span class="nv">next</span><span class="p">,</span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">prev</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="nv">fiboHelper</span><span class="p">(</span><span class="nv">next</span><span class="p">,</span><span class="nv">next</span><span class="nf">+</span><span class="nv">prev</span><span class="p">,</span><span class="nv">n</span><span class="nf">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : ( number, number, number1 ) -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<p>En:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">fibo</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">fiboHelper</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nv">n</span><span class="p">)</span><span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-morse-3-advanced">
+<h3>Challenge Morse (3) (advanced)<a class="headerlink" href="#challenge-morse-3-advanced" title="Permalink naar deze titel">#</a></h3>
+<p>Mocht je Morse (2) met veel plezier hebben gedaan dan kun je zelfs een manier bedenken om bij een String als “.-…-.–.-..-..-…-…-..–.” (alle punten en strepen achter elkaar geplakt) álle mogelijke vertalingen terug te geven. Tip: gebruik tuples.</p>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "elmreplkernel"
+        },
+        kernelOptions: {
+            kernelName: "elmreplkernel",
+            path: "./3_BasisElm"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'elmreplkernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="3_elm-list.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">3.3 Intro Lists</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5_elm-diversen.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">3.5 Records</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

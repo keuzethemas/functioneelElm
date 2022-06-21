@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2 Voorbeelden &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="2.3 Oefenopgaven" href="3_Oefenopgaven.html" />
+    <link rel="prev" title="2.1 Inleiding recursie" href="1_Inleiding.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/funcpoints.html">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../4_Toepassingen/boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4_Toepassingen/mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Toepassingen/ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F2_Recursie/2_Voorbeelden.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/2_Recursie/2_Voorbeelden.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci">
+   2.2.1 Fibonacci
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorteren-quicksort">
+   2.2.2 Sorteren (QuickSort)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#torens-van-hanoi">
+   2.2.3 Torens van Hanoi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#koch-kromme">
+   2.2.4 Koch kromme
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dames-op-een-schaakbord">
+   2.2.5 Dames op een schaakbord
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2.2 Voorbeelden</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci">
+   2.2.1 Fibonacci
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sorteren-quicksort">
+   2.2.2 Sorteren (QuickSort)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#torens-van-hanoi">
+   2.2.3 Torens van Hanoi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#koch-kromme">
+   2.2.4 Koch kromme
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dames-op-een-schaakbord">
+   2.2.5 Dames op een schaakbord
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="voorbeelden">
+<h1>2.2 Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">#</a></h1>
+<p>Er zijn veel typische problemen waarbij het gebruik van recursie erg handig kan zijn om tot een oplossing te komen. In dit hoofdstuk worden enkele van deze voorbeelden besproken.</p>
+<div class="section" id="fibonacci">
+<h2>2.2.1 Fibonacci<a class="headerlink" href="#fibonacci" title="Permalink naar deze titel">#</a></h2>
+<p>Één van de bekendste problemen waarvoor een eenvoudige recursieve oplossing bestaat, is de berekening van een Fibonacci getal. Fibonacci getallen vormen een rij (ook wel reeks van Fibonacci genoemd) die begint met 0 en 1 en waarbij elk volgende element van de rij steeds de som is van de twee voorgaande elementen: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …</p>
+<p>De rij van Fibonacci getallen wordt soms ook wel de konijnenrij genoemd. Het idee hiervan is dat met deze getallen de voortplantingssnelheid van konijnen wordt weergegeven.</p>
+<p>De opdracht is om een programma te schrijven dat een bepaald (het N-de) Fibonacci getal berekent. De klassieke manier om dit te doen is:</p>
+<p><strong>FiboWaarde(N)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>w1 := 0
+w2 := 1
+i := 1
+Zolang i &lt; N
+    w2 := w1+w2
+    w1 := w2-w1
+    i := i+1
+FiboWaarde := w1`
+</pre></div>
+</div>
+<p>Het is ook mogelijk om met behulp van een recursieve oplossing te berekenen wat de waarde is van een bepaald Fibonacci getal. Deze oplossing volgt eigenlijk al direct uit de definitie van de Fibonacci getallen: de waarde van het eerste Fibonacci getal is 0, de waarde van het tweede Fibonacci getal is 1 en de waarde van alle overige Fibonacci getallen is de som van de waarden van de voorgaande twee Fibonacci getallen.</p>
+<p>Hieronder is schematisch weergegeven op welke manier het zesde Fibonacci getal wordt berekend:</p>
+<p><img alt="Fibonacci" src="../_images/Fibonacci.png" /></p>
+<p>Een recursieve oplossing zou er als volgt uit zien:</p>
+<p><strong>FiboWaarde(n)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Als</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="n">dan</span>
+    <span class="n">FiboWaarde</span> <span class="o">:=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">Anders</span>
+        <span class="n">FiboWaarde</span> <span class="o">:=</span> <span class="n">FiboWaarde</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">FiboWaarde</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let op: deze oplossing ziet er dan wel veel compacter uit, maar het niet recursieve algoritme is veel efficiënter. Kan jij uitleggen waarom dit zo is?</p>
+</div>
+<div class="section" id="sorteren-quicksort">
+<h2>2.2.2 Sorteren (QuickSort)<a class="headerlink" href="#sorteren-quicksort" title="Permalink naar deze titel">#</a></h2>
+<p>Zoals eerder besproken is MergeSort een veel gebruikte recursieve sorteermethode. Een ander bekend sorteeralgoritme dat hier veel op lijkt is QuickSort. Het basisidee van QuickSort is dat het sorteren van een rij getallen bestaat uit het splitsen van de gegevens. Hiertoe wordt één van de waarden in de rij gekozen (de spil cq. de pivot). De waarden die kleiner zijn dan de spil komen aan de linkerkant en de waarde die groter zijn dan de spil komen aan de rechterkant (hierbij wordt er vanuit gegaan dat er in oplopende waarde gesorteerd moet worden). Om de gegevens in de rij in de juiste volgorde te krijgen hoeft nu alleen nog het linkerdeel en het rechterdeel te worden gesorteerd.</p>
+<p>Als voorbeeld nemen we de onderstaande rij met gegevens:</p>
+<p><img alt="QuickSort" src="../_images/afb1.png" /></p>
+<p>Er zijn verschillende manieren waarop de spil gekozen kan worden. In dit geval gaan we er vanuit dat hiervoor het eerste getal in de rij wordt genomen.</p>
+<p><img alt="QuickSort" src="../_images/afb2.png" /></p>
+<p>Na het splitsen zou de rij er als volgt uitzien:</p>
+<p><img alt="QuickSort" src="../_images/afb3.png" /></p>
+<p>Aan de linkerkant staan alle waarden die kleiner zijn dan de spilwaarde (60) en aan de rechterkant staan de waarden die groter zijn. Om de totale rij gesorteerd te krijgen moet er nu opdracht worden gegeven om de eerste 12 getallen te sorteren (recursieve aanroep) en om de laatste 10 getallen te sorteren (recursieve aanroep).</p>
+<p>Voor het sorteren van de waarden die links van de spil staan is een recursieve aanroep gedaan. Dit betekent dat manier waarop dit stuk van de rij gesorteerd wordt gelijk is aan de manier waarop de hele rij wordt gesorteerd. Ook dit stuk van de rij wordt dus gesplitst:</p>
+<p><img alt="QuickSort" src="../_images/afb4.png" /></p>
+<p>Vervolgens zouden de eerste 4 getallen gesorteerd moeten worden (recursieve aanroep) en tenslotte moeten ook de laatste 7 getallen in deze rij worden gesorteerd (recursieve aanroep). Hiermee zijn de eerste 12 getallen gesorteerd.</p>
+<p>Om de totale rij gesorteerd te krijgen moeten ook de waarden die in de totale rij aan de rechterkant van de spil stonden (de waarden op plek 14 tm plek 23) worden gesorteerd. De opdracht hiertoe werd gegeven met een recursieve aanroep. Ook nu begint het sorteren van dit stuk van de rij met het splitsen ervan:</p>
+<p><img alt="QuickSort" src="../_images/afb5.png" /></p>
+<p>Met een recursieve aanroep worden de linker twee getallen in deze rij gesorteerd en met een recursieve aanroep worden ook de laatste 7 getallen in dit stuk van de rij gesorteerd. Hiermee zijn ook de laatste 10 waarden in de totale rij gesorteerd.</p>
+<p>Een stukje van de rij waar slechts één waarde in staat is uiteraard al gesorteerd; er hoeft zo’n stukje niets te gebeuren.
+In pseudocode ziet het QuickSort algoritme er als volgt uit:</p>
+<p><strong>QuickSort (getallenrij, van, tot)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Als</span> <span class="n">van</span> <span class="o">&lt;</span> <span class="n">tot</span>
+    <span class="n">Splits</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">,</span> <span class="n">van</span><span class="p">,</span> <span class="n">tot</span><span class="p">,</span> <span class="n">splitspunt</span><span class="p">)</span>
+<span class="n">QuickSort</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">,</span> <span class="n">van</span><span class="p">,</span> <span class="n">splitspunt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">QuickSort</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">,</span> <span class="n">splitspunt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Er zijn verschillende manieren om (een stuk van) de rij te splitsen. Een algoritme dat hiervoor gebruikt kan worden is:</p>
+<p><strong>Splits(getallenrij, van, tot, spil)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spil</span> <span class="o">:=</span> <span class="n">van</span>
+<span class="n">laatste</span> <span class="o">=</span> <span class="n">tot</span>
+<span class="n">Zolang</span> <span class="n">spil</span> <span class="o">&lt;</span> <span class="n">laatste</span>
+    <span class="n">Als</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">[</span><span class="n">spil</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">getallenrij</span><span class="p">[</span><span class="n">spil</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">Wissel</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">[</span><span class="n">spil</span><span class="p">],</span> <span class="n">getallenrij</span><span class="p">[</span><span class="n">spil</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">spil</span> <span class="o">:=</span> <span class="n">spil</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">Anders</span>
+        <span class="n">Wissel</span> <span class="p">(</span><span class="n">getallenrij</span><span class="p">[</span><span class="n">spil</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">getallenrij</span><span class="p">[</span><span class="n">laatste</span><span class="p">])</span>
+        <span class="n">laatste</span> <span class="o">:=</span> <span class="n">laatste</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="torens-van-hanoi">
+<h2>2.2.3 Torens van Hanoi<a class="headerlink" href="#torens-van-hanoi" title="Permalink naar deze titel">#</a></h2>
+<p>Er is een legende over een hindoe-tempel in de Indiase stad Benares onder keizer Fo Hi, waarvan de priesters, de Brahmanen, zich bezig houden met het verplaatsen van een toren van 64 gouden schijven.</p>
+<p>De schijven liggen op drie naalden van diamant, een el lang en zo dik als het lichaam van een bij. In het begin liggen alle schijven opgestapeld over één naald, gesorteerd naar grootte (grootste onder, kleinste boven). Het werk is af wanneer alle schijven zijn verplaatst naar de naald waar de schijven uiteindelijk terecht moeten komen.</p>
+<p>De priesters uit de legende hadden drie regels waarmee ze rekening moesten houden:</p>
+<ol class="simple">
+<li><p>Een schijf ligt altijd over één van de drie pinnen.</p></li>
+<li><p>Je mag maar een schijf tegelijk verplaatsen.</p></li>
+<li><p>Je mag nooit een grotere schijf boven op een kleinere schijf leggen.</p></li>
+</ol>
+<p>De opdracht is om een programma te schrijven dat de priesters precies vertelt welke schijven in welke volgorde verplaatst moeten worden.</p>
+<p>Om te beginnen kijken we naar een stapel van 4 schijven. In het begin liggen alle schijven bij de eerste naald (naald 1). Het is de bedoeling dat ze uiteindelijk bij de derde naald (naald 3) uitkomen. Bij de verplaatsing mag gebruik worden gemaakt van een hulpnaald (naald 2).
+Het idee van de recursieve oplossing is weergegeven door onderstaande afbeeldingen:</p>
+<p><img alt="Hanoi" src="../_images/hanoi1.png" /></p>
+<p>Om de hele stapel van naald 1 naar naald 3 te krijgen zal de onderste schijf moeten worden verplaatst van naald 1 naar naald 3. Dit is alleen mogelijk als de stapel die er bovenop ligt eerst tijdelijk wordt verplaatst naar naald 2 (stap 1). Zodra er geen schijven meer liggen op de onderste schijf, kan de schijf van naald 1 naar naald 3 worden verplaatst (stap 2). Daarna kan het stapeltje schijven dat tijdelijk op naald 2 is geparkeerd naar naald 3 bovenop de grootste schijf worden geplaatst (stap 4).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Verplaats</span> <span class="mi">4</span> <span class="n">schijven</span> <span class="n">van</span> <span class="n">pin</span> <span class="mi">1</span> <span class="n">naar</span> <span class="n">pin</span> <span class="mi">3</span> <span class="n">mbv</span> <span class="n">pin</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">Verplaats</span> <span class="mi">3</span> <span class="n">schijven</span> <span class="n">van</span> <span class="n">pin</span> <span class="mi">1</span><span class="p">,</span> <span class="n">naar</span> <span class="n">pin</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mbv</span> <span class="n">pin</span> <span class="mi">3</span>
+    <span class="n">Verplaats</span> <span class="n">schijf</span> <span class="n">van</span> <span class="n">pin</span> <span class="mi">1</span> <span class="n">naar</span> <span class="n">pin</span> <span class="mi">3</span>
+    <span class="n">Verplaats</span> <span class="mi">3</span> <span class="n">schijven</span> <span class="n">van</span> <span class="n">pin</span> <span class="mi">2</span><span class="p">,</span> <span class="n">naar</span> <span class="n">pin</span> <span class="mi">3</span><span class="p">,</span> <span class="n">mbv</span> <span class="n">pin</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Hiermee is het probleem (het verplaatsen van 4 schijven) verkleint tot het verplaatsen van 3 schijven. Het verplaatsen van drie schijven van pin A, naar pin B, mbv pin C gebeurt op exact dezelfde manier:</p>
+<ul class="simple">
+<li><p>Verplaats 2 schijven van A, naar C, mbv B</p></li>
+<li><p>Verplaats een schijf van A naar B</p></li>
+<li><p>Verplaats 2 schijven van C, naar B, mbv A</p></li>
+</ul>
+<p>Op deze manier reduceer je het probleem van het verplaatsen van een stapel steeds tot twee keer het verplaatsen van een stapel die één schijf kleiner is, met daar tussendoor het verplaatsen van één schijf. Als de stapel uit nog slechts één schijf bestaat dan kan je de verplaatsing direct uitvoeren.</p>
+<p><strong>Verplaats Stapel (aantal schijven, van, naar, via)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Als aantal schijven = 1
+    Toon &quot;Verplaats een schijf van &quot;, van, &quot; naar &quot;, naar
+Anders
+    Verplaats Stapel (aantal schijven – 1, van, via, naar)
+    Toon &quot;Verplaats een schijf van &quot;, van, &quot; naar &quot;, naar
+    Verplaats Stapel (aantal schijven – 1, via, naar, van)
+</pre></div>
+</div>
+</div>
+<div class="section" id="koch-kromme">
+<h2>2.2.4 Koch kromme<a class="headerlink" href="#koch-kromme" title="Permalink naar deze titel">#</a></h2>
+<p>In 1904 ontdekte de Zweedse wiskundige Helge von Koch een kromme, die nergens afleidbaar is: de Kromme Van Koch.
+<img alt="Kromme van Koch" src="../_images/kromme.png" /></p>
+<p>De meetkundige constructie van de Koch-kromme verloopt als volgt:</p>
+<ul class="simple">
+<li><p>Het begint met één lijnstuk.</p></li>
+<li><p>Dit lijnstuk wordt verdeeld  in drie gelijke delen.</p></li>
+<li><p>Het middelste gedeelte wordt vervangen door een gelijkzijdige driehoek zonder basis.</p></li>
+<li><p>In een volgende stap wordt dezelfde constructie toegepast op ieder lijnstuk van de vorige constructie. Op ieder lijnstuk van de zo ontstane nieuwe figuur wordt deze constructie weer toegepast.</p></li>
+</ul>
+<p><img alt="Kromme van Koch" src="../_images/kromme2.png" /></p>
+<p>De limietfiguur die ontstaat door deze stappen herhaaldelijk uit te voeren noemt met de Kochkromme. In bovenstaande afbeelding is weergegeven hoe de Koch kromme er na 3 stappen uit ziet.</p>
+<p>Het valt niet mee om een niet-recursief algoritme te ontwerpen voor het tekenen van de Koch kromme die ontstaat na een gegeven aantal stappen. Het is daarentegen een stuk eenvoudiger om een algoritme te vinden waarin wel gebruik wordt gemaakt van recursie.</p>
+<p>Het algoritme zou er dan als volgt uit zien:</p>
+<p><strong>TekenKoch (x1, y1, x2, y2, stappen)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Als</span> <span class="n">stappen</span><span class="o">=</span><span class="mi">0</span> <span class="n">dan</span>
+    <span class="n">TekenLijn</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="n">Anders</span>
+    <span class="n">BerekenHoekpunten</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">x5</span><span class="p">,</span> <span class="n">y5</span><span class="p">)</span>
+    <span class="n">TekenKoch</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">stappen</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">TekenKoch</span> <span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">x5</span><span class="p">,</span> <span class="n">y5</span><span class="p">,</span> <span class="n">stappen</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">TekenKoch</span> <span class="p">(</span><span class="n">x5</span><span class="p">,</span> <span class="n">y5</span><span class="p">,</span> <span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">stappen</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">TekenKoch</span> <span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">stappen</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In dit recursieve algoritme wordt gebruik gemaakt van een subroutine waarmee voor het lijnstuk (x1, y1),(x2, y2) wordt berekend wat de coördinaten zijn van de gelijkzijdige driehoek (x3,y3), (x4,y4) en (x5,x5).</p>
+<p><img alt="Kromme van Koch" src="../_images/kromme3.png" /></p>
+<p>Voor de theorie over recursie is het niet relevant om te weten op welke manier de coördinaten van de hoekpunten van de gelijkzijdige driehoek berekend kunnen worden. Het is daarom geen punt als je de verdere uitwerking van de subroutine <code class="docutils literal notranslate"><span class="pre">BerekenHoekpunten</span></code> overslaat en verder gaat bij paragraaf 2.2.5.</p>
+<p>Met de subroutine <code class="docutils literal notranslate"><span class="pre">BerekenHoekpunten</span></code> worden de hoekpunten (x3,y3), (x4,y4), en (x5,y5) berekend van de gelijkzijdige driehoek waarmee het middelste deel van het lijnstuk tussen de coördinaten (x1, y1) en (x2, y2) wordt vervangen.</p>
+<p>De x-coördinaat van x3 kan je berekenen door 1/3 van het verschil tussen x1 en x2 op te tellen bij x1:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x3 = x1 + (x2-x1) / 3
+</pre></div>
+</div>
+<p>Op een vergelijkbare manier kan ook x4 worden uitgerekend:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x4 = x2 – (x2-x1) / 3
+</pre></div>
+</div>
+<p>Ook voor de bijbehorende y-coördinaten kan deze manier worden gebruikt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>y3 = y1 + (y2-y1) / 3
+y4 = y2 – (y2-y1) / 3
+</pre></div>
+</div>
+<p>De berekening van het coördinaat (x5,y5) is een stuk lastiger. Hiervoor wordt eerst de coördinaat (xm,ym) van het midden tussen (x3,y3) en (x4,y4) berekend. Dit punt is tevens het midden tussen (x1, y1) en (x2, y2).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xm = (x1+x2)/2
+ym = (y1+y2)/2
+</pre></div>
+</div>
+<p>Omdat de driehoek (x3,y3), (x4,y4),(x5,y5) een gelijkzijdige driehoek is, is de lengte van het lijnstuk (xm,ym),(x5,y5) gelijk aan de wortel van 3 keer de helft van de lengte van de zijde van de driehoek, met andere woorden: wortel 3 keer één-zesde van de lengte van het lijnstuk (x1, y1),(x2, y2). Het lijnstuk (xm,ym),(x5,y5) staat loodrecht op het lijnstuk (x1, y1),(x2, y2), 90 linksom; x5 is hierdoor xm plus wortel 3 keer één-zesde, keer het verschil tussen y2 en y1. De waarde van y5 krijg je door wortel 3 keer één-zesde, keer het verschil tussen x1 en x2 op te tellen bij ym.</p>
+<p>Dit betekent dat het coördinaat (x5,y5) als volgt kan worden berekend:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x5 = xm + ( wortel (3) / 6 ) x (y2-y1) ) 	=	(x1+x2)/2 + ( wortel (3) / 6 ) x (y2-y1) )
+y5 = ym + ( wortel (3) / 6 ) x (x1-x2) ) 	= 	(y1+y2)/2 + ( wortel (3) / 6 ) x (x1-x2) )
+</pre></div>
+</div>
+<p><strong>BerekenHoekpunten (x1, y1, x2, y2, x3, y3, x4, y4, x5, y5)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>x3 := x1 + (x2-x1) / 3
+y3 := y1 + (y2-y1) / 3
+x4 := x2 – (x2-x1) / 3
+y4 := y2 – (y2-y1) / 3
+x5 := (x1+x2)/2 + ( (Wortel(3)) / 6 ) * (y2-y1) )
+y5 := (y1+y2)/2 + ( (Wortel(3)) / 6 ) * (x1-x2) )
+</pre></div>
+</div>
+</div>
+<div class="section" id="dames-op-een-schaakbord">
+<h2>2.2.5 Dames op een schaakbord<a class="headerlink" href="#dames-op-een-schaakbord" title="Permalink naar deze titel">#</a></h2>
+<p>Een ander probleem waarbij het gebruik van recursie erg handig kan zijn om tot een oplossing te komen is het probleem van de 8 dames op een schaakbord. Een dame kan zich in rechte lijnen verplaatsen over het bord: horizontaal, verticaal en diagonaal. Een stuk dat in dezelfde kolom, rij of diagonaal staat als een dame kan door deze dame in één beweging van het bord worden geslagen.</p>
+<p><img alt="Dames op schaakbord" src="../_images/Dames.png" /></p>
+<p>We willen nu bekijken wat het maximum aantal dames is dat op een schaakbord kan worden geplaatst zonder dat de dames elkaar kunnen slaan.</p>
+<p>Het is in ieder geval niet mogelijk om meer dan 8 dames op het schaakbord te plaatsen. Probeer voor jezelf te ontdekken waarom dit niet mogelijk is.
+Een standaard oplossing voor dit probleem is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Maak het bord leeg
+begin op de eerste rij (rij := 1)
+begin met de eerste kolom (kolom := 1)
+
+Zolang er nog niet op alle rijen een koningin is geplaatst (m.a.w. rij &lt;= 8)
+    Zoek een veld op deze rij waar een koningin niet kan worden geslagen
+    Als er een veld op deze rij is gevonden
+        Plaats de koningin op het gevonden veld
+        Ga naar de volgende rij (rij := rij + 1)
+        Begin met de eerste kolom (kolom := 1)
+    Anders
+        Ga terug naar de vorige rij (rij := rij – 1)
+        Zoek in welke kolom de koningin staat
+        Haal de koningin van dit veld
+        Ga verder zoeken vanaf de volgende kolom
+
+ToonOplossing
+</pre></div>
+</div>
+<p>Dit programma zal stoppen bij de eerste mogelijkheid die door het programma wordt gevonden om 8 dames op een schaakbord te plaatsen.</p>
+<p>Merk op dat dit algoritme er al vanuit gaat dat er in ieder geval een mogelijkheid gevonden zal worden. Als dit niet zeker is zal de zolang-conditie moeten worden uitgebreid met een test of de rij nog groter is dan 0. Bovendien moet er voor ToonOplossing een extra test worden geplaatst <code class="docutils literal notranslate"><span class="pre">(Als</span> <span class="pre">rij</span> <span class="pre">&gt;</span> <span class="pre">8</span> <span class="pre">dan)</span></code>.</p>
+<p>Dit idee kan ook recursief worden opgelost. De basisgedachte hierbij is dat het plaatsen van N dames op een schaakbord bestaat uit het plaatsen van één dame op een rij, waarna er nog N-1 dames op de overige rijen geplaatst moeten worden.</p>
+<p>In pseudocode ziet de recursieve oplossing er als volgt uit:</p>
+<p><strong>PlaatsKoninginnen (aantal)</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Als</span> <span class="n">aantal</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">dan</span>
+    <span class="n">ToonOplossing</span>
+<span class="n">Anders</span>
+    <span class="n">rij</span> <span class="o">:=</span> <span class="mi">9</span><span class="o">-</span><span class="n">aantal</span>
+    <span class="n">kolom</span> <span class="o">:=</span> <span class="mi">1</span>
+    <span class="n">Zolang</span> <span class="n">kolom</span> <span class="o">&lt;</span> <span class="mi">9</span>
+        <span class="n">Als</span> <span class="n">veld</span> <span class="n">vrij</span> <span class="n">dan</span>
+            <span class="n">Zet_Koningin_Op_Veld</span> <span class="p">(</span><span class="n">rij</span><span class="p">,</span> <span class="n">kolom</span><span class="p">)</span>
+            <span class="n">PlaatsKoninginnen</span> <span class="p">(</span><span class="n">aantal</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">Neem_Koningin_Van_Veld</span> <span class="p">(</span><span class="n">rij</span><span class="p">,</span> <span class="n">kolom</span><span class="p">)</span>
+        <span class="n">kolom</span> <span class="o">:=</span> <span class="n">kolom</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Het zoeken wordt opgestart met het volgende commando: <code class="docutils literal notranslate"><span class="pre">PlaatsKoninginnen</span> <span class="pre">(8)</span></code>. Met dit algoritme wordt niet slechts één oplossing gevonden, maar het zal alle mogelijke oplossingen tonen.</p>
+<p>Bij de niet-recursieve oplossing was het nodig om het programma aan te passen als je er niet vanuit mag gaan dat er een oplossing gevonden zal worden. Bedenk of dit ook bij de recursieve oplossing nodig is.</p>
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2_Recursie"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="1_Inleiding.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">2.1 Inleiding recursie</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3_Oefenopgaven.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">2.3 Oefenopgaven</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

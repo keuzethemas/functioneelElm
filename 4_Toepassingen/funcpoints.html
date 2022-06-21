@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lijst met functiepunten &#8212; Functioneel Elm</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/patch.js"></script>
+    <script src="../_static/.ipynb_checkpoints/patch-checkpoint.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Polynoom-tekenprogramma" href="poly-draw.html" />
+    <link rel="prev" title="De polynoom-functies" href="poly-functions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="nl">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Functioneel Elm</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Module Functioneel Programmeren
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Inleiding
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/1_Inleiding.html">
+   1 Inleiding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/2_Paradigmas.html">
+   1.2 Paradigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/3_Programmeerparadigmas.html">
+   1.3 Programmeerparadigma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Inleiding/4_Overigeparadigmas.html">
+   1.4 Overige paradigma’s
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Recursie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/Recursie.html">
+   2 Recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/1_Inleiding.html">
+   2.1 Inleiding recursie
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/2_Voorbeelden.html">
+   2.2 Voorbeelden
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Recursie/3_Oefenopgaven.html">
+   2.3 Oefenopgaven
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basis Elm
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/1_elm-basis.html">
+   3.1 De basis van Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/2_elm-functie-definitie.html">
+   3.2 Functiedefinitie in Elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/3_elm-list.html">
+   3.3 Intro Lists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/4_recursie-in-elm.html">
+   3.4 Recursie in elm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_BasisElm/5_elm-diversen.html">
+   3.5 Records
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Toepassingen
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introductie.html">
+   Elm toepassingen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="elm-programmas.html">
+   Elm programma’s
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="havo2018-natuurkunde-repl.html">
+   Havo-examen natuurkunde 2018
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="polynoom.html">
+   Polynomen tekenen
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="poly-functions.html">
+     De polynoom-functies
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lijst met functiepunten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="poly-draw.html">
+     Polynoom-tekenprogramma
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="boxplot.html">
+   Boxplot tekenen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="myboxplotdata.html">
+     Functie boxplotdata
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="myboxplotdraw.html">
+     Boxplotdraw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mymergesort.html">
+     Mergesort
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ijskristallen.html">
+   IJskristallen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bronnenlijst.html">
+   Bronnenlijst
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../elm-in-jb.html">
+   Elm in Jupyter Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../hoe-gebruik-je-jupyter.html">
+   Hoe gebruik je Jupyter?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/keuzethemas/functioneelelm/master?urlpath=tree/notebooks/4_Toepassingen/funcpoints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/keuzethemas/functioneelelm/issues/new?title=Issue%20on%20page%20%2F4_Toepassingen/funcpoints.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/4_Toepassingen/funcpoints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xlist-lijst-met-x-punten">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xList
+    </span>
+   </code>
+   : lijst met x-punten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maak-de-lijst-functuples">
+   Maak de lijst Functuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-tuple-naar-svg-point">
+   Van tuple naar SVG-point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-functiepunten-lijst-naar-svg-points-string">
+   van functiepunten-lijst naar SVG points-string
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lijst met functiepunten</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xlist-lijst-met-x-punten">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xList
+    </span>
+   </code>
+   : lijst met x-punten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maak-de-lijst-functuples">
+   Maak de lijst Functuples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-tuple-naar-svg-point">
+   Van tuple naar SVG-point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#van-functiepunten-lijst-naar-svg-points-string">
+   van functiepunten-lijst naar SVG points-string
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lijst-met-functiepunten">
+<h1>Lijst met functiepunten<a class="headerlink" href="#lijst-met-functiepunten" title="Permalink naar deze titel">#</a></h1>
+<p>Voor het tekenen van de grafiek van een functie is het nodig om deze functie in een groot aantal punten uit te rekenen. We definiëren daarvoor een functie <code class="docutils literal notranslate"><span class="pre">funcTuples</span></code>.</p>
+<p>Het resultaat van de functie <code class="docutils literal notranslate"><span class="pre">funcTuples</span> <span class="pre">f</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code> is een lijst van functiepunten van de vorm van een tuple (paar) <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">f</span> <span class="pre">x)</span></code>, voor alle opeenvolgende punten <code class="docutils literal notranslate"><span class="pre">x</span></code> op het interval <code class="docutils literal notranslate"><span class="pre">start..stop</span></code>, in stappen van grootte <code class="docutils literal notranslate"><span class="pre">step</span></code>.</p>
+<p>Voorbeeld: <code class="docutils literal notranslate"><span class="pre">funcTuples</span> <span class="pre">sqr</span> <span class="pre">0</span> <span class="pre">4</span> <span class="pre">1</span></code> geeft: <code class="docutils literal notranslate"><span class="pre">[(0,0),</span> <span class="pre">(1,1),</span> <span class="pre">(2,4),</span> <span class="pre">(3,9),</span> <span class="pre">(4,16)]</span></code> - voor <code class="docutils literal notranslate"><span class="pre">sqr</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code>.</p>
+<p>In een volgende stap zetten we deze lijst van tuples om in een string, wat nodig is voor de SVG tekenfuncties. Voor het bovengenoemde voorbeeld krijgen we dan: <code class="docutils literal notranslate"><span class="pre">&quot;0,0</span> <span class="pre">1,1</span> <span class="pre">2,4</span> <span class="pre">3,9</span> <span class="pre">4,16&quot;</span></code>.</p>
+<p>We ontwikkelen de volgende functies:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xList</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code> - lijst met de opeenvolgende x-punten vanaf start</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">funcTuples</span> <span class="pre">f</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code> - lijst met <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">f</span> <span class="pre">x)</span></code> tuples</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tupleToPoint</span> <span class="pre">(a,</span> <span class="pre">b)</span></code> - van <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b)</span></code> naar <code class="docutils literal notranslate"><span class="pre">&quot;a,b&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuplesToPoints</span> <span class="pre">tuples</span></code> - van tuple-list naar string als lijst van SVG-punten</p></li>
+</ul>
+<p>We gebruiken de volgende definities:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nc">List</span><span class="w"> </span><span class="nv">exposing</span><span class="w"> </span><span class="nf">(..)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">sqr</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">*</span><span class="w"> </span><span class="nv">x</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : number -&gt; number
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">werkzelfuit</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : number
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">werkzelfuitList</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">werkzelfuitFunc</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">x</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="xlist-lijst-met-x-punten">
+<h2><code class="docutils literal notranslate"><span class="pre">xList</span></code>: lijst met x-punten<a class="headerlink" href="#xlist-lijst-met-x-punten" title="Permalink naar deze titel">#</a></h2>
+<p>De functie <code class="docutils literal notranslate"><span class="pre">xList</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code> (waarbij we aannemen dat stop &gt;= start) geeft de lijst met x-punten</p>
+<p><code class="docutils literal notranslate"><span class="pre">[start+0*step,</span> <span class="pre">start+1*step,</span> <span class="pre">start+2*step,</span> <span class="pre">...,</span> <span class="pre">stop]</span></code></p>
+<p>waarbij <code class="docutils literal notranslate"><span class="pre">stop</span></code> = <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">+</span> <span class="pre">nrsteps</span> <span class="pre">*</span> <span class="pre">step</span></code>. Voor deze punten berekenen we later de bijbehorende functiewaarden.</p>
+<p>Ontwikkel deze functie in een aantal stappen:</p>
+<ol class="simple">
+<li><p>bepaal eerst het aantal stappen, <code class="docutils literal notranslate"><span class="pre">nrsteps</span></code>;</p></li>
+<li><p>maak vervolgens de lijst <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">...</span> <span class="pre">nrsteps]</span></code> met de factoren voor <code class="docutils literal notranslate"><span class="pre">step</span></code>;</p></li>
+<li><p>schaal en verschuif de factoren-lijst tot <code class="docutils literal notranslate"><span class="pre">start+k*step</span></code>.</p></li>
+</ol>
+<p><strong>1. Bepaal het aantal stappen.</strong></p>
+<p>Het aantal stappen op het interval start..stop met stapgrootte 1 is stop - start. Voorbeeld: 1..10 telt 9 stappen.</p>
+<p>Voor een willekeurige stapgrootte <code class="docutils literal notranslate"><span class="pre">step</span></code> geldt: het aantal stappen is gelijk aan <code class="docutils literal notranslate"><span class="pre">(stop</span> <span class="pre">-</span> <span class="pre">start)</span> <span class="pre">/</span> <span class="pre">step</span></code>. Omdat <code class="docutils literal notranslate"><span class="pre">step</span></code> een floating point getal kan zijn, bijvoorbeeld 0.5, moeten we het resultaat nog afronden (<code class="docutils literal notranslate"><span class="pre">round</span></code>) tot een geheel getal.</p>
+<p>Voorbeeld: (vul voor stop, start en step verschillende waarden in)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">round</span><span class="w"> </span><span class="p">((</span><span class="mi">10</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nf">/</span><span class="w"> </span><span class="mf">0.</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18 : Int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">nrsteps</span><span class="w"> </span><span class="nf">:</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Float</span><span class="w"> </span><span class="nf">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"></span>
+<span class="nv">nrsteps</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="nv">stop</span><span class="w"> </span><span class="nv">step</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : Float -&gt; Float -&gt; Float -&gt; Int
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>2. Maak de lijst [0, 1, .. nrsteps].</strong></p>
+<p>Met behulp van de functie <code class="docutils literal notranslate"><span class="pre">List.range</span> <span class="pre">a</span> <span class="pre">b</span></code> maak je de lijst [a, a+1, …, b]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">baselist</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuitList</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List a
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3. Schaal en verschuif</strong></p>
+<p>Hiervoor pas je (via <code class="docutils literal notranslate"><span class="pre">map</span></code>) op elk punt van de lijst de functie toe: <code class="docutils literal notranslate"><span class="pre">\x</span> <span class="pre">-&gt;</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">step</span> <span class="pre">*</span> <span class="pre">toFloat</span> <span class="pre">x</span></code>. We moeten de parameter <code class="docutils literal notranslate"><span class="pre">x</span></code>, een Int, hier omzetten in een Float, omdat Elm geen gemengde Int - Float berekeningen kent.</p>
+<p>Voorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">map</span><span class="w"> </span><span class="nv">werkzelfuitFunc</span><span class="w"> </span><span class="nv">baselist</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List b
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combineer de vorige elementen in de onderstaande functie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">xList</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="nv">stop</span><span class="w"> </span><span class="nv">step</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">  </span><span class="kr">let</span><span class="w"></span>
+<span class="w">    </span><span class="nv">steps</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuit</span><span class="w"></span>
+<span class="w">    </span><span class="nv">steplist</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="nv">werkzelfuitList</span><span class="w"></span>
+<span class="w">  </span><span class="kr">in</span><span class="w"></span>
+<span class="w">    </span><span class="nv">werkzelfuitList</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; b -&gt; c -&gt; List d
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">xList</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mf">0.</span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List a
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="maak-de-lijst-functuples">
+<h2>Maak de lijst Functuples<a class="headerlink" href="#maak-de-lijst-functuples" title="Permalink naar deze titel">#</a></h2>
+<p>Gegeven de lijst met x-waarden, maak een lijst met tuples <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">fx)</span></code>.</p>
+<p>Dit kan door de functie <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">(x,</span> <span class="pre">f</span> <span class="pre">x)</span></code> via <code class="docutils literal notranslate"><span class="pre">map</span></code> op elk punt in de x-lijst toe te passen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">funcTuples</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="nv">stop</span><span class="w"> </span><span class="nv">end</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span>
+<span class="w">  </span><span class="nv">map</span><span class="w"> </span><span class="nv">werkzelfuitFunc</span><span class="w"> </span><span class="p">(</span><span class="nv">xList</span><span class="w"> </span><span class="nv">start</span><span class="w"> </span><span class="nv">stop</span><span class="w"> </span><span class="nv">end</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; c -&gt; d -&gt; e -&gt; List b
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">funcTuples</span><span class="w"> </span><span class="nv">sqr</span><span class="w"> </span><span class="nf">-</span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.</span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List b
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="van-tuple-naar-svg-point">
+<h2>Van tuple naar SVG-point<a class="headerlink" href="#van-tuple-naar-svg-point" title="Permalink naar deze titel">#</a></h2>
+<p>Een SVP “point” is een string met twee getallen x en y gescheiden door een komma.</p>
+<p>Voor het tekenen van de grafiek met behulp van SVG moeten we deze lijst in String-notatie omzetten.</p>
+<p>Elk tupel van de vorm <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">fx)</span></code> moet dan omgezet worden in de string: “x,fx” - gescheiden door spaties.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">tupleToPoint</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">  </span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="kt">String</span><span class="nf">.</span><span class="nv">fromFloat</span><span class="w"> </span><span class="nv">b</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : ( Float, Float ) -&gt; String
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voorbeeld:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">tupleToPoint</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;2,4&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="van-functiepunten-lijst-naar-svg-points-string">
+<h2>van functiepunten-lijst naar SVG points-string<a class="headerlink" href="#van-functiepunten-lijst-naar-svg-points-string" title="Permalink naar deze titel">#</a></h2>
+<p>Maak een functie <code class="docutils literal notranslate"><span class="pre">tuplesToPoints</span> <span class="pre">tuples</span></code> met als resultaat een string die bestaat uit SVG “points” (gemaakt uit de <code class="docutils literal notranslate"><span class="pre">tuples</span></code>) gescheiden door spaties.</p>
+<p>Doe dit in twee stappen:</p>
+<p>(1) pas de functie <code class="docutils literal notranslate"><span class="pre">tupleToPoint</span></code> (via <code class="docutils literal notranslate"><span class="pre">map</span></code>) toe op de lijst met tuples; het resultaat is een <em>lijst</em> van points</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">werkzelfuitList</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[] : List a
+</pre></div>
+</div>
+</div>
+</div>
+<p>(2) combineer de elementen uit deze lijst door middel van <code class="docutils literal notranslate"><span class="pre">++&quot;</span> <span class="pre">&quot;++</span></code> tussen de elementen. Gebruik daarvoor <code class="docutils literal notranslate"><span class="pre">foldr</span></code> met de onderstaande functie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">connect</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nf">=</span><span class="w"></span>
+<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="nf">++</span><span class="w"> </span><span class="nv">b</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : String -&gt; String -&gt; String
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">foldr</span><span class="w"> </span><span class="nv">connect</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nv">werkzelfuitList</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&quot; : String
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Wat gebeurt er als je <code class="docutils literal notranslate"><span class="pre">foldr</span></code> vervangt door <code class="docutils literal notranslate"><span class="pre">foldl</span></code>?)</p>
+<p>Werk nu de functie <code class="docutils literal notranslate"><span class="pre">tuplesToPoints</span></code> uit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-elm notranslate"><div class="highlight"><pre><span></span><span class="nv">tuplesToPoints</span><span class="w"> </span><span class="nv">tuples</span><span class="w"> </span><span class="nf">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">&lt;function&gt;</span> : a -&gt; String
+</pre></div>
+</div>
+</div>
+</div>
+<p>De volgende functies gebruik je straks voor het tekenen van de polynoom:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xList</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">funcTuples</span> <span class="pre">f</span> <span class="pre">start</span> <span class="pre">stop</span> <span class="pre">step</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tupleToPoint</span> <span class="pre">(a,</span> <span class="pre">b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuplesToPoints</span> <span class="pre">tlst</span></code></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "keuzethemas/functioneelelm",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "elmreplkernel"
+        },
+        kernelOptions: {
+            kernelName: "elmreplkernel",
+            path: "./4_Toepassingen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'elmreplkernel'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="poly-functions.html" title="vorige pagina">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">vorige</p>
+            <p class="prev-next-title">De polynoom-functies</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="poly-draw.html" title="volgende pagina">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title">Polynoom-tekenprogramma</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Coen Crombach et.al.<br/>
+  
+      &copy; Copyright 2022, SLO Amersfoort (CC-BY).<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
