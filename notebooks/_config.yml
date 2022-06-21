@@ -41,3 +41,6 @@ html:
   
 only_build_toc_files: true
 
+sphinx:
+  config:
+    language: nl
